@@ -25,14 +25,14 @@
 			if(userAgent.indexOf('Android') > -1){
 */
 
-				var properties = {
-					'properties': {
-						'propertieName1': 'value1',
-						'propertieName2': 'value2',
-						'propertieName3': 'value3'
+				var aaaa = {
+					properties: {
+						propertieName1: "value1",
+						propertieName2: "value2",
+						propertieName3: "value3"
 					}
 				};
-				var obj = JSON.stringify(properties);
+				var obj = JSON.stringify(aaaa);
 				window.AppJSInterface.logCustomEvent('testLogAndroid', obj);
 /*
 			} else if (userAgent.indexOf('iOS') > -1){
