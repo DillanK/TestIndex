@@ -21,16 +21,15 @@
         
         function logCustomEvent() {
 	        var userAgent=navigator.userAgent.toLowerCase();
-// 			if(userAgent.indexOf('Android') > -1){
-/*
-				var properties = 'properties': {
-					'propertieName1': 'value1',
-					'propertieName2': 'value2',
-					'propertieName3': 'value3'
+			if(userAgent.indexOf('Android') > -1){
+				var properties = {
+					'properties': {
+						'propertieName1': 'value1',
+						'propertieName2': 'value2',
+						'propertieName3': 'value3'
+					}
 				};
 				window.AppJSInterface.logCustomEvent('testLogAndroid', properties);
-*/
-/*
 			} else if (userAgent.indexOf('iOS') > -1){
 				var message = {
 		            'func' : 'logCustomEvent',
@@ -43,13 +42,11 @@
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
-*/
-			window.AppJSInterface.getSettingData();
         }
     
         function setCustomAttributeWithKey() {
 			if(userAgent.indexOf('Android') > -1){
-				browser='익스플로러 엣지';
+				window.AppJSInterface.getSettingData();
 			} else if (userAgent.indexOf('iOS') > -1){
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -62,7 +59,7 @@
     
         function logPurchase() {
 	        if(userAgent.indexOf('Android') > -1){
-				browser='익스플로러 엣지';
+
 			} else if (userAgent.indexOf('iOS') > -1){
 				var message = {
 		            'func' : 'logPurchase',
