@@ -19,30 +19,34 @@
             bind()
         }
         
-        function bind() {
-            var message = {
-                'action': 'bind',
-                'name': 'message'
-            };
-            window.webkit.messageHandlers.test.postMessage(message);
-        }
-    
-        function test() {
-            alert('(Web)test()\nmessage :\n' + message);
-        }
-    
-        function getMessage() {
-            window.webkit.messageHandlers.test.postMessage('getMessage');
-        }
-    
-        function returnMessage(text) {
-            alert('(Native)returnMessage() :\n' + text);
-        }
-    
-        function callFunction() {
-            var message = {
+        function logCustomEvent() {
+			var message = {
 	            'func' : 'logCustomEvent',
-				'eventName': 'test',
+				'eventName': 'testLogCustom',
+				'properties': {
+					'propertieName1': 'value1',
+					'propertieName2': 'value2',
+					'propertieName3': 'value3'
+				}
+			};
+            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+        }
+    
+        function setCustomAttributeWithKey() {
+            var message = {
+	            'func' : 'setCustomAttributeWithKey',
+				'attributeName' : 'testCustomAttribute',
+				'value' : 'testValue'
+			};
+            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+        }
+    
+        function logPurchase() {
+            var message = {
+	            'func' : 'logPurchase',
+				'productID': 'testProduct',
+				'currency': '1',
+				'price': '10000',
 				'properties': {
 					'propertieName1': 'value1',
 					'propertieName2': 'value2',
@@ -59,13 +63,9 @@
 </head>
 <body>
     <div id='container' align='center'>
-        <button onclick='bind();'>Call bind()</button></br>
-        <button onclick='test();' style='margin-top: 10px'>Print Binding Data</button></br>
-        <button onclick='getMessage();' style='margin-top: 10px'>Call getMessage()</button></br>
-        <button onclick='callFunction();' style='margin-top: 10px'>Call callFunction()</button></br>
+        <button onclick='logCustomEvent();'>logCustomEvent()</button></br>
+        <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button></br>
+        <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button></br>
     </div>
 </body>
 </html>
-
-
-출처: https://mrgamza.tistory.com/490 [@Override]
