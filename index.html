@@ -20,17 +20,11 @@
         }
         
         function logCustomEvent() {
-/*
-	        var userAgent = window.navigator.userAgent;
-			if(userAgent.indexOf('Android') > -1){
-*/
-				
+			if(navigator.userAgent.indexOf('Android') > -1){
 				var message = "{properties: {propertieName1: value1,propertieName2: value2,propertieName3: value3}}";
 				// var obj = JSON.stringify(aaaa);
-				alert(message);
 				window.AppJSInterface.logCustomEvent('testLogAndroid', message);
-/*
-			} else if (userAgent.indexOf('iOS') > -1){
+			} else {
 				var message = {
 		            'func' : 'logCustomEvent',
 					'eventName': 'testLogCustom',
@@ -42,17 +36,12 @@
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
-*/
         }
     
         function setCustomAttributeWithKey() {
-/*
-	        var userAgent = window.navigator.userAgent;
-			if(userAgent.indexOf('Android') > -1){
-*/
-				window.AppJSInterface.getSettingData();
-/*
-			} else if (userAgent.indexOf('iOS') > -1){
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('testCustomAttributeAndroid', 'testValue');
+			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
 					'attributeName' : 'testCustomAttribute',
@@ -60,17 +49,13 @@
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
-*/
         }
     
         function logPurchase() {
-/*
-			var userAgent = window.navigator.userAgent;
-	        if(userAgent.indexOf('Android') > -1){
-*/
-
-/*
-			} else if (userAgent.indexOf('iOS') > -1){
+	        if(navigator.userAgent.indexOf('Android') > -1){
+	        	var message = "{properties: {propertieName1: value1,propertieName2: value2,propertieName3: value3}}";
+				window.AppJSInterface.logPurchase('productID', 'KRW', '10000', message);
+			} else {
 				var message = {
 		            'func' : 'logPurchase',
 					'productID': 'testProduct',
@@ -84,7 +69,6 @@
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
-*/
         }
     
         function returnFunction(text) {
