@@ -25,15 +25,15 @@
 			if(userAgent.indexOf('Android') > -1){
 */
 
-
-				var properties = '{
-					"properties": {
-						"propertieName1": "value1",
-						"propertieName2": "value2",
-						"propertieName3": "value3"
+				var properties = {
+					'properties': {
+						'propertieName1': 'value1',
+						'propertieName2': 'value2',
+						'propertieName3': 'value3'
 					}
-				}';
-				window.AppJSInterface.logCustomEvent('testLogAndroid', properties);
+				};
+				var obj = JSON.stringify(properties);
+				window.AppJSInterface.logCustomEvent('testLogAndroid', obj);
 /*
 			} else if (userAgent.indexOf('iOS') > -1){
 				var message = {
@@ -98,10 +98,10 @@
     </script>
 </head>
 <body>
-    <div id='container' align='center'>
-        <button onclick='logCustomEvent();'>logCustomEvent()</button></br>
-        <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button></br>
-        <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button></br>
-    </div>
+
+        <button onclick='logCustomEvent();'>logCustomEvent()</button><br>
+        <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button><br>
+        <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button><br>
+
 </body>
 </html>
