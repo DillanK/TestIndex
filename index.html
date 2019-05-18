@@ -19,37 +19,59 @@
             bind()
         }
         
-        function bind() {
-            var message = {
-                'action': 'bind',
-                'name': 'message'
-            };
-            window.webkit.messageHandlers.test.postMessage(message);
-        }
-    
-        function test() {
-            alert('(Web)test()\nmessage :\n' + message);
-        }
-    
-        function getMessage() {
-            window.webkit.messageHandlers.test.postMessage('getMessage');
-        }
-    
-        function returnMessage(text) {
-            alert('(Native)returnMessage() :\n' + text);
-        }
-    
-        function callFunction() {
-            var message = {
-	            'func' : 'logCustomEvent',
-				'eventName': 'test',
-				'properties': {
+        function logCustomEvent() {
+	        var userAgent=navigator.userAgent.toLowerCase();
+			if(userAgent.indexOf('Android') > -1){
+				var properties = 'properties': {
 					'propertieName1': 'value1',
 					'propertieName2': 'value2',
 					'propertieName3': 'value3'
-				}
-			};
-            window.webkit.messageHandlers.logCustomEvent.postMessage(message);
+				};
+				window.AppJSInterface.logCustomEvent('testLogAndroid', properties);
+			} else if (userAgent.indexOf('iOS') > -1){
+				var message = {
+		            'func' : 'logCustomEvent',
+					'eventName': 'testLogCustom',
+					'properties': {
+						'propertieName1': 'value1',
+						'propertieName2': 'value2',
+						'propertieName3': 'value3'
+					}
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+    
+        function setCustomAttributeWithKey() {
+			if(userAgent.indexOf('Android') > -1){
+				browser='익스플로러 엣지';
+			} else if (userAgent.indexOf('iOS') > -1){
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 'testValue'
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+    
+        function logPurchase() {
+	        if(userAgent.indexOf('Android') > -1){
+				browser='익스플로러 엣지';
+			} else if (userAgent.indexOf('iOS') > -1){
+				var message = {
+		            'func' : 'logPurchase',
+					'productID': 'testProduct',
+					'currency': '1',
+					'price': '10000',
+					'properties': {
+						'propertieName1': 'value1',
+						'propertieName2': 'value2',
+						'propertieName3': 'value3'
+					}
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
         }
     
         function returnFunction(text) {
@@ -59,13 +81,9 @@
 </head>
 <body>
     <div id='container' align='center'>
-        <button onclick='bind();'>Call bind()</button></br>
-        <button onclick='test();' style='margin-top: 10px'>Print Binding Data</button></br>
-        <button onclick='getMessage();' style='margin-top: 10px'>Call getMessage()</button></br>
-        <button onclick='callFunction();' style='margin-top: 10px'>Call callFunction()</button></br>
+        <button onclick='logCustomEvent();'>logCustomEvent()</button></br>
+        <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button></br>
+        <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button></br>
     </div>
 </body>
 </html>
-
-
-출처: https://mrgamza.tistory.com/490 [@Override]
