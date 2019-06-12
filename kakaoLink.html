@@ -9,19 +9,9 @@
 
 </head>
 <body>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">
-[카카오링크 v2] 링크 버튼 (디폴트, 피드형)
-</h3>
-</div>
-<div class="panel-body">
-<h4>카카오톡 앱이 설치되어 있는 모바일 기기라면 아래의 링크가 동작합니다.</h4>
 <a id="kakao-link-btn" href="javascript:;">
 <img src="https://dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
 </a>
-</div>
-</div>
 <script type='text/javascript'>
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -31,41 +21,38 @@
       container: '#kakao-link-btn',
       objectType: 'feed',
       content: {
-    	title: '딸기 치즈 케익',
-    	description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-    	imageUrl: 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-    	link: {
-    	  mobileWebUrl: 'http://mdev.meatsolution.co.kr',
-    	  webUrl: 'http://mdev.meatsolution.co.kr'
-    	}
-      },
-      social: {
-    	likeCount: 286,
-    	commentCount: 45,
-    	sharedCount: 845
-      },
-      buttons: [{
-    	title: '웹으로 보기',
-    	link: {
-    	  mobileWebUrl: 'http://mdev.meatsolution.co.kr',
-    	  webUrl: 'http://mdev.meatsolution.co.kr'
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'http://www.meatsolution.co.kr',
+          webUrl: 'http://www.meatsolution.co.kr'
         }
       },
-      {
-    	title: '앱으로 보기',
-    	link: {
-    	  mobileWebUrl: 'http://mdev.meatsolution.co.kr',
-    	  webUrl: 'http://mdev.meatsolution.co.kr'
-    	}
-      }]
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://itunes.apple.com/app/id1357464730',
+            webUrl: 'http://www.meatsolution.co.kr'
+          }
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://itunes.apple.com/app/id1357464730',
+            webUrl: 'http://www.meatsolution.co.kr'
+          }
+        }
+      ]
     });
   //]]>
 </script>
 
 </body>
-<!--------------- 아래의 코드는 삭제해주세요. 샘플이 제대로 동작하지 않을 수 있습니다. ---------------------->
-<!-- <script src="/resource/Message.js"></script>
-<script src="/vassets/javascripts/demos_layout.js"></script>
-<link rel="stylesheet" media="screen" href="/assets/bootstrap/css/bootstrap.min.css"/>
-<link rel="stylesheet" media="screen" href="/vassets/stylesheets/docs_js_demos.css"/> -->
 </html>
