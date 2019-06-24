@@ -70,6 +70,91 @@
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
         }
+
+        function setCustomAttributeWithString() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('STRING', 'testCustomAttributeAndroid', 'testValue');
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'STRING',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 'testValue'
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function setCustomAttributeWithInteger() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('INTEGER', 'testCustomAttributeAndroid', 1000);
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'INTEGER',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 1000
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function setCustomAttributeWithBool() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('BOOL', 'testCustomAttributeAndroid', true);
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'BOOL',
+					'attributeName' : 'testCustomAttribute',
+					'value' : true
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function setCustomAttributeWithArray() {
+        	var data = {'aaaa', 'cccc', 1, 2, 1.234, true, Date.now()}
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('ARRAY', 'testCustomAttributeAndroid', data);
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'ARRAY',
+					'attributeName' : 'testCustomAttribute',
+					'value' : data
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function setCustomAttributeWithDate() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('DATE', 'testCustomAttributeAndroid', Date.now());
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'DATE',
+					'attributeName' : 'testCustomAttribute',
+					'value' : Date.now()
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function setCustomAttributeWithDouble() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('DOUBLE', 'testCustomAttributeAndroid', 1.234);
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'DOUBLE',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 'testValue'
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
     
         function returnFunction(text) {
             alert('(Web)returnFunction() :\n' + text);
@@ -81,6 +166,11 @@
         <button onclick='logCustomEvent();'>logCustomEvent()</button><br>
         <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button><br>
         <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button><br>
-
+        <button onclick='setCustomAttributeWithString();' style='margin-top: 10px'>setCustomAttributeWithString()</button><br>
+        <button onclick='setCustomAttributeWithInteger();' style='margin-top: 10px'>setCustomAttributeWithInteger()</button><br>
+        <button onclick='setCustomAttributeWithBool();' style='margin-top: 10px'>setCustomAttributeWithBool()</button><br>
+        <button onclick='setCustomAttributeWithArray();' style='margin-top: 10px'>setCustomAttributeWithArray()</button><br>
+        <button onclick='setCustomAttributeWithDate();' style='margin-top: 10px'>setCustomAttributeWithDate()</button><br>
+        <button onclick='setCustomAttributeWithDouble();' style='margin-top: 10px'>setCustomAttributeWithDouble()</button><br>
 </body>
 </html>
