@@ -150,7 +150,22 @@
 		            'func' : 'setCustomAttributeWithKey',
 		            'type' : 'DOUBLE',
 					'attributeName' : 'testCustomAttribute',
-					'value' : 'testValue'
+					'value' : 1.234
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function inAppMessage() {
+        	var data = {'link' : 'http://www.naver.com'};
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, data);
+			} else {
+				var message = {
+		            'func' : 'inAppMessageDisplay',
+		            'message' : 'Test InAppMessage',
+					'duration' : 0.25,
+					'extras' : data
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
@@ -172,5 +187,6 @@
         <button onclick='setCustomAttributeWithArray();' style='margin-top: 10px'>setCustomAttributeWithArray()</button><br>
         <button onclick='setCustomAttributeWithDate();' style='margin-top: 10px'>setCustomAttributeWithDate()</button><br>
         <button onclick='setCustomAttributeWithDouble();' style='margin-top: 10px'>setCustomAttributeWithDouble()</button><br>
+        <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
 </body>
 </html>
