@@ -114,7 +114,7 @@
         }
 
         function setCustomAttributeWithArray() {
-        	var data = {'aaaa', 'cccc', 1, 2, 1.234, true, Date.now()}
+        	var data = {'aaaa', 'cccc', 1, 2, 1.234, true, Date.now()};
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.setCustomAttributeWithKey('ARRAY', 'testCustomAttributeAndroid', data);
 			} else {
