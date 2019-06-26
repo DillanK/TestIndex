@@ -156,6 +156,40 @@
 			}
         }
 
+        function addToCustomAttributeArray() {
+        	// 
+        	// 중요 : Add Value 값은 반드시 String 으로 넘겨야 합니다.
+        	//
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('ADD_ARRAY', 'testCustomAttributeAndroid', 'Test');
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'ADD_ARRAY',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 'Test'
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function removeFromCustomAttributeArray() {
+        	// 
+        	// 중요 : Remove Value 값은 반드시 String 으로 넘겨야 합니다.
+        	//
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.setCustomAttributeWithKey('REMOVE_ARRAY', 'testCustomAttributeAndroid', 'Test');
+			} else {
+				var message = {
+		            'func' : 'setCustomAttributeWithKey',
+		            'type' : 'REMOVE_ARRAY',
+					'attributeName' : 'testCustomAttribute',
+					'value' : 'Test'
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
         function inAppMessage() {
         	var data = {'link' : 'http://www.naver.com'};
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -187,6 +221,8 @@
         <button onclick='setCustomAttributeWithArray();' style='margin-top: 10px'>setCustomAttributeWithArray()</button><br>
         <button onclick='setCustomAttributeWithDate();' style='margin-top: 10px'>setCustomAttributeWithDate()</button><br>
         <button onclick='setCustomAttributeWithDouble();' style='margin-top: 10px'>setCustomAttributeWithDouble()</button><br>
+        <button onclick='addToCustomAttributeArray();' style='margin-top: 10px'>addToCustomAttributeArray()</button><br>
+        <button onclick='removeFromCustomAttributeArray();' style='margin-top: 10px'>removeFromCustomAttributeArray()</button><br>
         <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
 </body>
 </html>
