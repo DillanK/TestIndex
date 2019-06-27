@@ -73,7 +73,7 @@
 
         function setCustomAttributeWithString() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('STRING', 'testCustomAttributeAndroid', 'testValue');
+				window.AppJSInterface.setCustomAttributeWithKey('STRING', 'testCustomAttributeAndroid', new Object('testValue'));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -87,7 +87,7 @@
 
         function setCustomAttributeWithInteger() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('INTEGER', 'testCustomAttributeAndroid', 1000);
+				window.AppJSInterface.setCustomAttributeWithKey('INTEGER', 'testCustomAttributeAndroid', new Object(1000));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -101,7 +101,7 @@
 
         function setCustomAttributeWithBool() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('BOOL', 'testCustomAttributeAndroid', true);
+				window.AppJSInterface.setCustomAttributeWithKey('BOOL', 'testCustomAttributeAndroid', new Object(true));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -116,7 +116,7 @@
         function setCustomAttributeWithArray() {
         	var data = ['aaaa', 'cccc', 1, 2, 1.234, true, Date.now()];
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('ARRAY', 'testCustomAttributeAndroid', data);
+				window.AppJSInterface.setCustomAttributeWithKey('ARRAY', 'testCustomAttributeAndroid', new Object(data));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -130,7 +130,7 @@
 
         function setCustomAttributeWithDate() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('DATE', 'testCustomAttributeAndroid', Date.now());
+				window.AppJSInterface.setCustomAttributeWithKey('DATE', 'testCustomAttributeAndroid', new Object(Date.now()));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
@@ -144,7 +144,7 @@
 
         function setCustomAttributeWithDouble() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.setCustomAttributeWithKey('DOUBLE', 'testCustomAttributeAndroid', 1.234);
+				window.AppJSInterface.setCustomAttributeWithKey('DOUBLE', 'testCustomAttributeAndroid', new Object(1.234));
 			} else {
 				var message = {
 		            'func' : 'setCustomAttributeWithKey',
