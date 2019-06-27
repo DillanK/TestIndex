@@ -113,8 +113,9 @@
 			}
         }
 
+        // String 형태의 값만 처리가 가능합니다.(Android Array 처리 값이 String 배열로 이루어져 있습니다.)
         function setCustomAttributeWithArray() {
-        	var data = "[aaaa, cccc, 1, 2, 1.234, true, Date.now()]";
+        	var data = "[aaaa, cccc, 1, 2, 1.234]";
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.setCustomAttributeWithKey('ARRAY', 'testCustomAttributeAndroid', data);
 			} else {
