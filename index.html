@@ -195,7 +195,7 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, "{link : http://www.naver.com}");
+				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, "['link' : 'http://www.naver.com']");
 			} else {
 				var message = {
 		            'func' : 'inAppMessageDisplay',
