@@ -195,7 +195,8 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				var jsonData = "{properties: {propertieName1: http://www.google.com,propertieName2: value2,propertieName3: value3}}";
+				var url = encodeURI('http://www.google.com');
+				var jsonData = {'link' : url};
 				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 250, jsonData);
 			} else {
 				var message = {
