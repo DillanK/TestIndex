@@ -194,15 +194,14 @@
         }
 
         function inAppMessage() {
-        	var data = {'link' : 'http://www.naver.com'};
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, data);
+				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, "{link : http://www.naver.com}");
 			} else {
 				var message = {
 		            'func' : 'inAppMessageDisplay',
 		            'message' : 'Test InAppMessage',
 					'duration' : 0.25,
-					'extras' : data
+					'extras' : {'link' : 'http://www.naver.com'}
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
