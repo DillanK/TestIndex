@@ -196,7 +196,7 @@
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
 				var jsonData = "{properties: {propertieName1: value1,propertieName2: value2,propertieName3: value3}}";
-				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 0.25, jsonData);
+				window.AppJSInterface.inAppMessageDisplay('Test InAppMessage', 250, jsonData);
 			} else {
 				var message = {
 		            'func' : 'inAppMessageDisplay',
