@@ -208,6 +208,19 @@
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
         }
+
+        function googleLogin() {
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.googleLogin('/sns/callbackGoogle', 'login');
+			} else {
+				var message = {
+		            'func' : 'googleLogin',
+		            'callbackUrl' : '/sns/callbackGoogle',
+					'type' : 'login'}
+				};
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
     
         function returnFunction(text) {
             alert('(Web)returnFunction() :\n' + text);
@@ -228,5 +241,6 @@
         <button onclick='addToCustomAttributeArray();' style='margin-top: 10px'>addToCustomAttributeArray()</button><br>
         <button onclick='removeFromCustomAttributeArray();' style='margin-top: 10px'>removeFromCustomAttributeArray()</button><br>
         <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
+        <button onclick='googleLogin();' style='margin-top: 10px'>googleLogin()</button><br>
 </body>
 </html>
