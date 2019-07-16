@@ -228,7 +228,7 @@
 
         function test() {
         	if(navigator.userAgent.indexOf('Android') > -1) {
-				var message = "{properties: {'goodsId': 'G000059563', 'addCartDtm': " + new Date() + "}}";
+				var message = "{properties: {'goodsId': 'G000059563', 'addCartDtm': '" + new Date() + "'}}";
 				window.AppJSInterface.logCustomEvent('add_cart', message);
 			} else {
 				var message = {
