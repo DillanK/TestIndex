@@ -235,7 +235,7 @@
 					}
 				};
 				window.AppJSInterface.logCustomEvent('add_cart', message);
-			} else if(this.deviceChk()=='android') {
+			} else {
 				var message = {
 						'func' : 'logCustomEvent',
 						'eventName': 'add_cart',
