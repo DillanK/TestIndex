@@ -227,7 +227,15 @@
         }
 
         function test() {
-        	if(this.deviceChk()=='iOS') {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				var message = {
+					properties: {
+						'goodsId': 'G000059563', 
+						'addCartDtm': new Date()
+					}
+				};
+				window.AppJSInterface.logCustomEvent('add_cart', message);
+			} else if(this.deviceChk()=='android') {
 				var message = {
 						'func' : 'logCustomEvent',
 						'eventName': 'add_cart',
@@ -237,14 +245,6 @@
 					}
 				};
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
-			} else if(this.deviceChk()=='android') {
-					var message = {
-						properties: {
-							'goodsId': 'G000059563', 
-							'addCartDtm': new Date()
-						}
-					};
-					window.AppJSInterface.logCustomEvent('add_cart', message);
 			}
         }
     </script>
