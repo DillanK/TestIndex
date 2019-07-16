@@ -227,7 +227,7 @@
         }
 
         function test() {
-        	if(this.deviceChk()=="iOS") {
+        	if(this.deviceChk()=='iOS') {
 				var message = {
 					'func' : 'logCustomEvent',
 					'eventName': 'add_cart',
@@ -237,7 +237,7 @@
 					}
 				};
 					window.webkit.messageHandlers.AppJSInterface.postMessage(message);
-			} else if(this.deviceChk()=="android") {
+			} else if(this.deviceChk()=='android') {
 					var message = "{properties: {goodsId: G000059563, addCartDtm: " + new Date() + "}}";
 					window.AppJSInterface.logCustomEvent('add_cart', message);
 			} else{
