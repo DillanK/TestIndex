@@ -242,6 +242,14 @@
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
         }
+
+        func schemeTest() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				location.href = 'fresh-meatsolution://default?type=app&link=https://m.naver.com';
+			} else {
+				location.href = 'fresh-meatsolution://default?type=app&link=https://m.naver.com';
+			}	
+        }
     </script>
 </head>
 <body>
@@ -260,5 +268,6 @@
         <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
         <button onclick='googleLogin();' style='margin-top: 10px'>googleLogin()</button><br>
         <button onclick='test();' style='margin-top: 10px'>testAddCart()</button><br>
+        <button onclick='schemeTest();' style='margin-top: 10px'>schemeTest()</button><br>
 </body>
 </html>
