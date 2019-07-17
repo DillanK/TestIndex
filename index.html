@@ -253,10 +253,18 @@
 
         function schemeLink() {
         	if(navigator.userAgent.indexOf('Android') > -1) {
-				location.href = 'fresh-meatsolution://default?type=link&value=https://m.naver.com';
+				location.href = 'fresh-meatsolution://default?type=page&link=https://m.naver.com';
 			} else {
-				window.location.href = 'fresh-meatsolution://default?type=link&value=https://m.naver.com';
+				window.location.href = 'fresh-meatsolution://default?type=page&link=https://m.naver.com';
 			}		
+        }
+
+        function schemeDownload() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				location.href = 'fresh-meatsolution://default?type=download&link=https://m.post.naver.com/viewer/postView.nhn?volumeNo=22310779&memberNo=29931758';
+			} else {
+				window.location.href = 'fresh-meatsolution://default?type=download&link=https://m.post.naver.com/viewer/postView.nhn?volumeNo=22310779&memberNo=29931758';
+			}	
         }
     </script>
 </head>
