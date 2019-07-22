@@ -278,28 +278,53 @@
 				};
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}	
+		}
+
+        function test() {
+        	FB.ui({
+			  method: 'share_open_graph',
+			  action_type: 'popup',
+			  action_properties: JSON.stringify({
+			    object:'https://developers.facebook.com/docs/javascript/examples',
+			  })
+			}, function(response){
+			  // Debug response (optional)
+			  console.log(response);
+			});
         }
     </script>
 </head>
 <body>
+	<script>
+		window.fbAsyncInit = function() {
+		FB.init({
+  			appId            : '454955245297165',
+  			autoLogAppEvents : true,
+  			xfbml            : true,
+  			version          : 'v3.3'
+			});
+		};
+	</script>
+	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
-        <button onclick='logCustomEvent();'>logCustomEvent()</button><br>
-        <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button><br>
-        <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button><br>
-        <button onclick='setCustomAttributeWithString();' style='margin-top: 10px'>setCustomAttributeWithString()</button><br>
-        <button onclick='setCustomAttributeWithInteger();' style='margin-top: 10px'>setCustomAttributeWithInteger()</button><br>
-        <button onclick='setCustomAttributeWithBool();' style='margin-top: 10px'>setCustomAttributeWithBool()</button><br>
-        <button onclick='setCustomAttributeWithArray();' style='margin-top: 10px'>setCustomAttributeWithArray()</button><br>
-        <button onclick='setCustomAttributeWithDate();' style='margin-top: 10px'>setCustomAttributeWithDate()</button><br>
-        <button onclick='setCustomAttributeWithDouble();' style='margin-top: 10px'>setCustomAttributeWithDouble()</button><br>
-        <button onclick='addToCustomAttributeArray();' style='margin-top: 10px'>addToCustomAttributeArray()</button><br>
-        <button onclick='removeFromCustomAttributeArray();' style='margin-top: 10px'>removeFromCustomAttributeArray()</button><br>
-        <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
-        <button onclick='googleLogin();' style='margin-top: 10px'>googleLogin()</button><br>
-        <button onclick='test();' style='margin-top: 10px'>testAddCart()</button><br>
-        <button onclick='schemeAppLink();' style='margin-top: 10px'>schemeAppLink()</button><br>
-        <button onclick='schemeLink();' style='margin-top: 10px'>schemeLink()</button><br>
-        <button onclick='schemeDownload();' style='margin-top: 10px'>schemeDownload()</button><br>
-        <button onclick='shareFacebookLink();' style='margin-top: 10px'>shareFacebookLink()</button><br>
+    <button onclick='logCustomEvent();'>logCustomEvent()</button><br>
+    <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button><br>
+    <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button><br>
+    <button onclick='setCustomAttributeWithString();' style='margin-top: 10px'>setCustomAttributeWithString()</button><br>
+    <button onclick='setCustomAttributeWithInteger();' style='margin-top: 10px'>setCustomAttributeWithInteger()</button><br>
+    <button onclick='setCustomAttributeWithBool();' style='margin-top: 10px'>setCustomAttributeWithBool()</button><br>
+    <button onclick='setCustomAttributeWithArray();' style='margin-top: 10px'>setCustomAttributeWithArray()</button><br>
+    <button onclick='setCustomAttributeWithDate();' style='margin-top: 10px'>setCustomAttributeWithDate()</button><br>
+    <button onclick='setCustomAttributeWithDouble();' style='margin-top: 10px'>setCustomAttributeWithDouble()</button><br>
+    <button onclick='addToCustomAttributeArray();' style='margin-top: 10px'>addToCustomAttributeArray()</button><br>
+    <button onclick='removeFromCustomAttributeArray();' style='margin-top: 10px'>removeFromCustomAttributeArray()</button><br>
+    <button onclick='inAppMessage();' style='margin-top: 10px'>inAppMessage()</button><br>
+    <button onclick='googleLogin();' style='margin-top: 10px'>googleLogin()</button><br>
+    <button onclick='test();' style='margin-top: 10px'>testAddCart()</button><br>
+    <button onclick='schemeAppLink();' style='margin-top: 10px'>schemeAppLink()</button><br>
+    <button onclick='schemeLink();' style='margin-top: 10px'>schemeLink()</button><br>
+    <button onclick='schemeDownload();' style='margin-top: 10px'>schemeDownload()</button><br>
+    <button onclick='shareFacebookLink();' style='margin-top: 10px'>shareFacebookLink()</button><br>
+    <button onclick='test();' style='margin-top: 10px'>test()</button><br>
 </body>
 </html>
