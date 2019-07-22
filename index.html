@@ -311,6 +311,18 @@
 		    }
 			});
         }
+
+        function copy() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				window.AppJSInterface.textCopy('copy text');
+			} else {
+				var message = {
+		            'func' : 'textCopy',
+		            'copy' : 'copy text'
+				};
+				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}	
+        }
     </script>
 </head>
 <body>
@@ -345,5 +357,6 @@
     <button onclick='schemeDownload();' style='margin-top: 10px'>schemeDownload()</button><br>
     <button onclick='shareFacebookLink();' style='margin-top: 10px'>shareFacebookLink()</button><br>
     <button onclick='test();' style='margin-top: 10px'>test()</button><br>
+    <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
 </body>
 </html>
