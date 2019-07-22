@@ -283,13 +283,17 @@
         function test() {
         	FB.ui({
 			  method: 'share_open_graph',
-			  action_type: 'og.likes',
+			  action_type: 'og.shares',
 			  action_properties: JSON.stringify({
 			    object:'https://mdev.meatsolution.co.kr/goods/indexGoodsDetail?goodsId=G000054850',
 			  })
 			}, function(response){
 			  // Debug response (optional)
-			  console.log(response);
+			if (response && !response.error_message) {
+				alert('Posting completed.');
+			} else {
+			alert('Error while posting.');
+		    }
 			});
         }
     </script>
