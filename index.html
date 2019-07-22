@@ -266,6 +266,19 @@
 				window.location.href = 'fresh-meatsolution://default?type=download&link=https://post-phinf.pstatic.net/MjAxOTA3MTFfNDkg/MDAxNTYyODE4ODc4Nzcy.tndnyWyvhamduckfl1V-rFnJ7dzZkrJ8xi8Vf9iQzFMg.DVv138OzThvHAWxnAxFUh4EEZFP31zSsfIifMcPvdeUg.JPEG/악가무_동양고주파_틈.jpg?type=w1200';
 			}	
         }
+
+        function shareFacebookLink() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				var message = "{properties: {'goodsId': 'G000059563', 'addCartDtm': '" + new Date() + "'}}";
+				window.AppJSInterface.shareFacebookLink('https://post-phinf.pstatic.net/MjAxOTA3MTFfNDkg/MDAxNTYyODE4ODc4Nzcy.tndnyWyvhamduckfl1V-rFnJ7dzZkrJ8xi8Vf9iQzFMg.DVv138OzThvHAWxnAxFUh4EEZFP31zSsfIifMcPvdeUg.JPEG/악가무_동양고주파_틈.jpg?type=w1200');
+			} else {
+				var message = {
+		            'func' : 'shareFacebookLink',
+		            'link' : 'https://post-phinf.pstatic.net/MjAxOTA3MTFfNDkg/MDAxNTYyODE4ODc4Nzcy.tndnyWyvhamduckfl1V-rFnJ7dzZkrJ8xi8Vf9iQzFMg.DVv138OzThvHAWxnAxFUh4EEZFP31zSsfIifMcPvdeUg.JPEG/악가무_동양고주파_틈.jpg?type=w1200'
+				};
+				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}	
+        }
     </script>
 </head>
 <body>
@@ -287,5 +300,6 @@
         <button onclick='schemeAppLink();' style='margin-top: 10px'>schemeAppLink()</button><br>
         <button onclick='schemeLink();' style='margin-top: 10px'>schemeLink()</button><br>
         <button onclick='schemeDownload();' style='margin-top: 10px'>schemeDownload()</button><br>
+        <button onclick='shareFacebookLink();' style='margin-top: 10px'>shareFacebookLink()</button><br>
 </body>
 </html>
