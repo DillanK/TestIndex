@@ -18,23 +18,15 @@
     Kakao.init('95932f5cb3d0fe7bc98da42721cd6ec7');
     function loginWithKakao() {
       // 로그인 창을 띄웁니다.
-      // Kakao.Auth.login({
-      //   success: function(authObj) {
-      //     alert(JSON.stringify(authObj));
-      //   },
-      //   fail: function(err) {
-      //     alert(JSON.stringify(err));
-      //   }
-      // });
-
-      Kakao.Auth.loginForm({
-      	success: function(authObj) {
-      		alert(JSON.stringify(authObj));
-      	},
-      	fail: function(err) {
-      		alert(JSON.stringify(err));
-      	}
-      }); 
+      Kakao.Auth.login({
+        success: function(authObj) {
+          // alert(JSON.stringify(authObj));
+          window.href = "https%3A%2F%2Fm.meatsolution.co.kr%2Fsns%2FcallbackKakao";
+        },
+        fail: function(err) {
+          alert(JSON.stringify(err));
+        }
+      });
     };
   //]]>
 </script>
