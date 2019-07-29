@@ -21,7 +21,7 @@
       Kakao.Auth.login({
         success: function(authObj) {
           // alert(JSON.stringify(authObj));
-          window.href = "https%3A%2F%2Fm.meatsolution.co.kr%2Fsns%2FcallbackKakao";
+          document.location.href = "https%3A%2F%2Fm.meatsolution.co.kr%2Fsns%2FcallbackKakao";
         },
         fail: function(err) {
           alert(JSON.stringify(err));
