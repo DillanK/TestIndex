@@ -323,6 +323,17 @@
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}	
         }
+
+        function historyBack() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				window.AppJSInterface.historyBack();
+			} else {
+				var message = {
+		            'func' : 'historyBack'
+				};
+				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}	
+        }
     </script>
 </head>
 <body>
@@ -358,5 +369,6 @@
     <button onclick='shareFacebookLink();' style='margin-top: 10px'>shareFacebookLink()</button><br>
     <button onclick='test();' style='margin-top: 10px'>test()</button><br>
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
+    <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
 </body>
 </html>
