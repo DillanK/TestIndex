@@ -209,7 +209,7 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				var jsonData = {eventName : "member_join_induce", properties : { value : "NNNNN"}};
+				var jsonData = {event_name : "member_join_induce", properties : { value : "Y"}};
 				var data = JSON.stringify(jsonData);
 				window.AppJSInterface.inAppMessageDisplay('Teset', 250, data);
 			} else {
