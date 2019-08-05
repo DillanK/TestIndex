@@ -209,8 +209,7 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				var jsonData = {event_name : "member_join_induce", properties : { value : "Y"}};
-				var message = "{properties: {value: Y}}";
+				var message = "{properties: {value: Y, propertieName2: value2, propertieName3: value3}}";
 				window.AppJSInterface.logCustomEvent('member_join_induce', message);
 			} else {
 				var message = {
