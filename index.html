@@ -214,10 +214,13 @@
 				window.AppJSInterface.logCustomEvent('member_join_induce', message);
 			} else {
 				var message = {
-		            'func' : 'inAppMessageDisplay',
-		            'message' : 'Test InAppMessage',
-					'duration' : 0.25,
-					'extras' : {'link' : 'http://www.naver.com'}
+		            'func' : 'logCustomEvent',
+					'eventName': 'member_join_induce',
+					'properties': {
+						'value': 'Y',
+						'propertieName2': 'value2',
+						'propertieName3': 'value3'
+					}
 				};
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
