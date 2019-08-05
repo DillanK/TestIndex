@@ -209,13 +209,9 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-<<<<<<< Updated upstream
 				var jsonData = {event_name : "member_join_induce", properties : { value : "Y"}};
-=======
-				var jsonData = {eventName : "member_join_induce", properties : {value : "Y"}};
->>>>>>> Stashed changes
-				var data = JSON.stringify(jsonData);
-				window.AppJSInterface.inAppMessageDisplay('Teset', 250, data);
+				var message = "{eventName: member_join_induce, properties: {value: Y}}";
+				window.AppJSInterface.logCustomEvent('testLogAndroid', message);
 			} else {
 				var message = {
 		            'func' : 'inAppMessageDisplay',
