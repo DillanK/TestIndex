@@ -209,7 +209,7 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				var message = "{properties: {value: Y, propertieName2: value2, propertieName3: value3}}";
+				var message = "{value: Y}";
 				window.AppJSInterface.logCustomEvent('member_join_finish', message);
 			} else {
 				var message = {
