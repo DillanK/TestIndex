@@ -209,8 +209,9 @@
 
         function inAppMessage() {
 			if(navigator.userAgent.indexOf('Android') > -1){
-				var message = "{value: Y}";
-				window.AppJSInterface.logCustomEvent('member_join_finish', message);
+				var value = "Y";
+				var message = "{value:" + value +"}";
+				window.AppJSInterface.logCustomEvent('member_join_induce', message);
 			} else {
 				var message = {
 		            'func' : 'logCustomEvent',
