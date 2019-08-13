@@ -337,6 +337,31 @@
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}	
         }
+
+        // 뒤로 가기 버튼 숨기기
+        function enableBack_hide() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				window.AppJSInterface.enableBack('N');
+			} else {
+				var message = {
+		            'func' : 'enableBack',
+		            'enable' : 'N'
+				};
+				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}	
+        }
+
+        function enableBack_show() {
+        	if(navigator.userAgent.indexOf('Android') > -1) {
+				window.AppJSInterface.enableBack('Y');
+			} else {
+				var message = {
+		            'func' : 'enableBack',
+		            'enable' : 'Y'
+				};
+				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}	
+        }
     </script>
 </head>
 <body>
@@ -373,5 +398,7 @@
     <button onclick='test();' style='margin-top: 10px'>test()</button><br>
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
     <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
+    <button onclick='enableBack_hide();' style='margin-top: 10px'>enableBack_hide()</button><br>
+    <button onclick='enableBack_show();' style='margin-top: 10px'>enableBack_show()</button><br>
 </body>
 </html>
