@@ -378,6 +378,11 @@
 
     <input type="file" accept="image/*" name="이미지 첨부 true" capture=true>
 
-    <input type="file" accept="image/*" name="이미지 첨부 user" capture="none">
+    <input type="file" accept="image/*;capture=none" name="이미지 첨부 none">
+
+    <form id="form1" runat="server">
+    <input type='file' id="imgInp" />
+    <img id="blah" src="#" alt="your image" />
+</form>
 </body>
 </html>
