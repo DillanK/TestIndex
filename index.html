@@ -346,12 +346,6 @@
 		  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
 		            navigator.mozGetUserMedia || navigator.msGetUserMedia);
 		}
-
-		if (hasGetUserMedia()) {
-		  // Good to go!
-		} else {
-		  alert('getUserMedia() is not supported in your browser');
-		}
     </script>
 </head>
 <body>
@@ -389,9 +383,8 @@
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
     <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
 
+	<button onclick='hasGetUserMedia();' style='margin-top: 10px'>hasGetUserMedia()</button><br>
     <input type="file" accept="image/*;capture=none" name="이미지 첨부 none">
 
-    <button onclick='hasGetUserMedia();' style='margin-top: 10px'>hasGetUserMedia()</button><br>
-</form>
 </body>
 </html>
