@@ -337,6 +337,21 @@
 				window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}	
         }
+
+        function hasGetUserMedia() {
+        	alert(navigator.getUserMedia);
+        	alert(navigator.webkitGetUserMedia);
+        	alert(navigator.mozGetUserMedia);
+        	alert(navigator.msGetUserMedia);
+		  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+		            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+		}
+
+		if (hasGetUserMedia()) {
+		  // Good to go!
+		} else {
+		  alert('getUserMedia() is not supported in your browser');
+		}
     </script>
 </head>
 <body>
@@ -374,15 +389,9 @@
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
     <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
 
-    <input type="file" accept="image/*" name="이미지 첨부 false" capture=false>
-
-    <input type="file" accept="image/*" name="이미지 첨부 true" capture=true>
-
     <input type="file" accept="image/*;capture=none" name="이미지 첨부 none">
 
-    <form id="form1" runat="server">
-    <input type='file' id="imgInp" />
-    <img id="blah" src="#" alt="your image" />
+    <button onclick='hasGetUserMedia();' style='margin-top: 10px'>hasGetUserMedia()</button><br>
 </form>
 </body>
 </html>
