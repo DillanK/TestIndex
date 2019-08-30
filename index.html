@@ -338,14 +338,18 @@
 			}	
         }
 
-        function hasGetUserMedia() {
-        	alert(navigator.getUserMedia);
-        	alert(navigator.webkitGetUserMedia);
-        	alert(navigator.mozGetUserMedia);
-        	alert(navigator.msGetUserMedia);
-		  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-		            navigator.mozGetUserMedia || navigator.msGetUserMedia);
-		}
+        function uploadImage() {
+        	if(navigator.userAgent.indexOf('iOS') > -1) {
+                var message = {
+                    'func' : 'uploadImage'
+                };
+                window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
+
+        function selectUploadImage(image) {
+        	document.getElementById("imgUploadImage").src = image
+        }
     </script>
 </head>
 <body>
@@ -383,8 +387,8 @@
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
     <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
 
-	<button onclick='hasGetUserMedia();' style='margin-top: 10px'>hasGetUserMedia()</button><br>
-    <input type="file" accept="image/*;capture=none" name="이미지 첨부 none">
+	<button onclick='uploadImage();' style='margin-top: 10px'>uploadImage()</button><br>
+    <img id="imgUploadImage">
 
 </body>
 </html>
