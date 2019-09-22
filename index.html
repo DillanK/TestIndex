@@ -338,10 +338,10 @@
 			}	
         }
 
-        function uploadImage() {
+        function checkUploadImage() {
         	if(navigator.userAgent.indexOf('iOS') > -1) {
                 var message = {
-                    'func' : 'uploadImage'
+                    'func' : 'checkUploadImage'
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			}
@@ -349,6 +349,10 @@
 
         function selectUploadImage(image) {
         	document.getElementById("imgUploadImage").src = image
+        }
+    
+        function iosUploadImage() {
+            alert("Permission Complete.\nFile Upload")
         }
     </script>
 </head>
@@ -387,7 +391,8 @@
     <button onclick='copy();' style='margin-top: 10px'>copy()</button><br>
     <button onclick='historyBack();' style='margin-top: 10px'>historyBack()</button><br>
 
-	<button onclick='uploadImage();' style='margin-top: 10px'>uploadImage()</button><br>
+    <button onclick='checkUploadImage();' style='margin-top: 10px'>uploadImage()</button><br>
+    
     <img id="imgUploadImage">
 
 </body>
