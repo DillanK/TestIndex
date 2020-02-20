@@ -354,6 +354,10 @@
         function iosUploadImage() {
             alert("Permission Complete.\nFile Upload")
         }
+
+        function appCall() {
+        	window.location.href = "colorTailor://"
+        }
     </script>
 </head>
 <body>
@@ -393,6 +397,8 @@
 
     <button onclick='checkUploadImage();' style='margin-top: 10px'>uploadImage()</button><br>
     
+	<button onclick='appCall();' style='margin-top: 10px'>uploadImage()</button><br>
+
     파일명:<input type="file" name="fileName" type="jpeg">
 
     <img id="imgUploadImage">
