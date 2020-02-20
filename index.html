@@ -356,7 +356,13 @@
         }
 
         function appCall() {
-        	window.location.href = "colorTailor://"
+        	var clickedAt = +new Date;
+			var appCheckTimer = setTimeout(function() {
+				if (+new Date - clickedAt < 2000){
+					window.location.href = appStoreAppName;
+				}
+			}, 100);
+			window.location.href = "colorTailor://";
         }
     </script>
 </head>
