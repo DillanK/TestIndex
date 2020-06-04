@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
     <title>JavaScript Test</title>
     <style type="text/css">
         #container {
@@ -378,7 +379,30 @@
 		};
 	</script>
 	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+ 	<h1>1번 링크</h1>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?product_id=CHANL0001'">Product Detail</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?alarm_id=0'">Alarm List</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?main_id=0'">Main</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?notice_id=148'">Notice Detail</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?event_id=112'">Event Detail</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?beautyCast_id=327'">Cast Detail</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?talk_id=70121378'">Talk Detail</button>
+	<button type="button" onclick="location.href='colortailor://deeplink?targetUrl=colortailordeeplink://deeplink?brand_id=0'">Brand List</button>
 
+	<h1>2번 링크(인코딩)</h1>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fproduct_id%3dCHANL0001'">Product Detail</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3falarm_id%3d0'">Alarm List</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fmain_id%3d0'">Main</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fnotice_id%3d148'">Notice Detail</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fevent_id%3d112'">Event Detail</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fbeautyCast_id%3d327'">Cast Detail</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3ftalk_id%3d70121378'">Talk Detail</button>
+	<button type="button" onclick="location.href='colortailor%3a%2f%2fdeeplink%3ftargetUrl%3dcolortailordeeplink%3a%2f%2fdeeplink%3fbrand_id%3d0'">Brand List</button>
+
+	3번 링크(원링크)
+
+
+<!--
     <button onclick='logCustomEvent();'>logCustomEvent()</button><br>
     <button onclick='setCustomAttributeWithKey();' style='margin-top: 10px'>setCustomAttributeWithKey()</button><br>
     <button onclick='logPurchase();' style='margin-top: 10px'>logPurchase()</button><br>
@@ -408,6 +432,6 @@
     파일명:<input type="file" name="fileName" type="jpeg">
 
     <img id="imgUploadImage">
-
+-->
 </body>
 </html>
