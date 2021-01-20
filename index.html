@@ -437,14 +437,74 @@
 
     <img id="imgUploadImage">
 -->
-<iframe src ="http://devsgr.aboutpet.co.kr/player/load/R8D81777099?v=1&vtype=mp4&ui=mobile"
-		frameborder="0"
-		width="800px"
-		height="450px"
-		scrolling="no"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		playsinline="playsinline"
-		allowfullscreen>
-</iframe>
+<script src="http://devsgr.aboutpet.co.kr/player/iframe_api/v1.js"></script>
+<!-- 플레이어 위치 -->
+<div id="player">
+	<div style="height:calc(360px - 0px);overflow:hidden">
+		<iframe id="sgrplayer_axhwuvjkevp" src="http://devsgr.aboutpet.co.kr/player/load/R8D81777099?vtype=mp4&amp;next_event=true&amp;prev_event=true&amp;ui=mobile" frameborder="0" width="640px" height="360px" scrolling="no" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+	</div>
+</div>
+
+<script>
+var player;
+
+<!-- 플레이어 생성 함수 (자동실행) -->
+function onIframeAPIReady() {
+    player = SGRPLAYER;
+    player.setup('player', {
+		height: '360px',
+		width: '640px',
+		video_id: 'Qega1604820',
+		vtype:'mp4',
+		ui:'mobile', //UI 분기를 위하여 추가
+		events:{
+			playing:onPlaying, //재생시작시 호출
+			pause:onPause, // 일시정지시 호출
+			ended:onEnded, //재생 종료시 호출
+			muted:onMuted, //음소거 변화가 발생하면 호출 , 현재 상태값 전달
+			keepPlaying:onKeepPlaying, //영상 재생시 , 현재 재생위치 5초마다 보고
+			nextVideo:onNextVideo, //다음영상 UI 클릭시 실행 , 이벤트를 등록해야만 UI 노출됨
+			prevVideo:onPrevVideo,  //이전영상 UI 클릭시 실행 , 이벤트를 등록해야만 UI 노출됨
+			activeControlbar:onActiveControlbar, //컨트롤바가 활성/비활성시 호출
+		}
+    });
+}
+
+function onPlaying(){
+    console.log('onPlaying','이벤트 실행');
+}
+function onPause(){
+    console.log('onPause','이벤트 실행');
+}
+function onEnded(){
+    console.log('onEnded','이벤트 실행');
+}
+function onMuted(state){
+    if(state==true) {
+	    console.log('onMuted', '음소거됨');
+    }else{
+	    console.log('onMuted', '음소거해제');
+    }
+}
+function onActiveControlbar(state){
+    if(state==true) {
+	    console.log('onMuted', '컨트롤바 보임');
+    }else{
+	    console.log('onMuted', '컨트롤바 숨김');
+    }
+}
+function onKeepPlaying(sec){
+    console.log('onKeepPlaying','시청보고 5초마다 / 현재시간 : '+sec);
+}
+function onNextVideo(){
+    console.log('nextVideo',' 이벤트 들어옴 ');
+    alert('onNextVideo 실행됨');
+}
+function onPrevVideo(){
+    console.log('prevVideo',' 이벤트 들어옴 ');
+    alert('onPrevVideo 실행됨');
+}
+
+</script>
 </body>
 </html>
