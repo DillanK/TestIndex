@@ -49,12 +49,21 @@
                 reader.readAsDataURL(f);
             });
         }
+
+        function openAlbum() {
+        	if(navigator.userAgent.indexOf('iOS') > -1) {
+                var message = {
+                    'func' : 'onOpenGallery'
+                };
+                window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
+        }
  
     </script>
 </head>
  
 <body>
- 
+ 	<button onclick='openAlbum();' style='margin-top: 10px'>openAlbum()</button><br>
  
     <div>
         <h2><b>다중 이미지 미리보기</b></h2>
