@@ -72,14 +72,11 @@
 		}
 
 		function setImages(base64img) {
-			Base64ToImage(base64img, function(img) {
-			    var img_html = "<img src=\"" + img + "\" />";
-	            $(".imgs_wrap").append(img_html);
-			    // document.getElementById('main').appendChild(img);
-			    // // <img>要素にすることで幅・高さがわかります
-			    // var log = "w=" + img.width + " h=" + img.height;
-			    // document.getElementById('log').value = log;
-			});
+			var img = new Image();
+		    img.onload = function() {
+		    	document.getElementById('main').appendChild(img)
+		    };
+		    img.src = base64img;
 		}
  		
 
@@ -95,10 +92,8 @@
         <input type="file" id="input_imgs" multiple />
     </div>
  
-    <div>
-        <div class="imgs_wrap">
-            
-        </div>
+    <div id="main">
+        
     </div>
  
  
