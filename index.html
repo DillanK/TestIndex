@@ -56,6 +56,12 @@
                     'func' : 'onOpenGallery'
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			} else {
+				try {
+					window.AppJSInterface.onOpenGallery();
+				} catch (e) {
+
+				}
 			}
         }
 
@@ -72,20 +78,20 @@
 		}
 
 		function deleteImage() {
+			// 마지막 데이터 지움
+			var removeImage = saveImages.pop();
+			if (removeImage == null) {
+				return;
+			}
+
+			document.getElementById('main').removeChild(document.getElementById(removeImage.id));
+			var values = [];
+			for (var i = saveImages.length - 1; i >= 0; i--) {
+				values.push(saveImages[i].id);
+				console.log(values);
+			}
+				
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
-				// 마지막 데이터 지움
-				var removeImage = saveImages.pop();
-				if (removeImage == null) {
-					return;
-				}
-
-				document.getElementById('main').removeChild(document.getElementById(removeImage.id));
-				var values = [];
-				for (var i = saveImages.length - 1; i >= 0; i--) {
-					values.push(saveImages[i].id);
-					console.log(values);
-				}
-
                 var message = {
                     'func' : 'onDeleteImage',
                     'params' : {
@@ -93,6 +99,12 @@
                     }
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			} else {
+				try {
+					window.AppJSInterface.onDeleteImage(values);
+				} catch (e) {
+
+				}
 			}
 		}
  		
