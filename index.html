@@ -66,6 +66,7 @@
 			saveImages.push({id: key, name: value});
 
 			var img = new Image();
+			img.id = key;
 		    img.src = 'data:' + mimeType + ';base64,' + value;
 		    document.getElementById('main').appendChild(img);
 		}
@@ -73,8 +74,8 @@
 		function deleteImage() {
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
 				// 마지막 데이터 지움
-				saveImages.pop();
-
+				var removeImage = saveImages.pop();
+				document.getElementById('main').removeChild(document.getElementById(removeImage.id));
 				var values = [];
 				for (var i = saveImages.length - 1; i >= 0; i--) {
 					values.push(saveImages[i].id);
