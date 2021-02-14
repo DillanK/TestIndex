@@ -51,7 +51,7 @@
         }
 
         function openAlbum() {
-        	if(navigator.userAgent.indexOf('iPhone') > -1) {
+        	if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
                 var message = {
                     'func' : 'onOpenGallery'
                 };
@@ -59,24 +59,28 @@
 			}
         }
 
-        // Base64形式の文字列 → <img>要素に変換
-		//   base64img: Base64形式の文字列
-		//   callback : 変換後のコールバック。引数は<img>要素
-		//=====================================================
-		function Base64ToImage(base64img, callback) {
-		    var img = new Image();
-		    img.onload = function() {
-		        callback(img);
-		    };
-		    img.src = base64img;
+        var saveImages = [];
+
+		function setImages(key, value, mimeType) {
+			// 데이터 저장
+			saveImages.push({id: key, name: value});
+
+			var img = new Image();
+		    img.src = 'data:' + mimeType + ';base64,' + value;
+		    document.getElementById('main').appendChild(img)
 		}
 
-		function setImages(base64img) {
-			var img = new Image();
-		    img.onload = function() {
-		    	document.getElementById('main').appendChild(img)
-		    };
-		    img.src = 'data:image/jpeg;base64,' + base64img;
+		function deleteImage() {
+			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
+				var lastValue = saveImages.lastValue
+                var message = {
+                    'func' : 'onOpenGallery',
+                    'params' : {
+                    	'fileId' : lastValue.key
+                    }
+                };
+                window.webkit.messageHandlers.AppJSInterface.postMessage(message);
+			}
 		}
  		
 
@@ -86,6 +90,8 @@
 <body>
  	<button onclick='openAlbum();' style='margin-top: 10px'>openAlbum()</button><br>
  
+	<button onclick='deleteImage();' style='margin-top: 10px'>deleteImage()</button><br>
+
     <div>
         <h2><b>다중 이미지 미리보기</b></h2>
         <p class="title">다중 이미지 업로드</p>
