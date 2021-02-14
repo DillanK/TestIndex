@@ -84,24 +84,21 @@
 				return;
 			}
 
-			document.getElementById('main').removeChild(document.getElementById(removeImage.id));
-			var values = [];
-			for (var i = saveImages.length - 1; i >= 0; i--) {
-				values.push(saveImages[i].id);
-				console.log(values);
-			}
-				
+			var removeFileId = removeImage.id;
+
+			document.getElementById('main').removeChild(document.getElementById(removeFileId));
+
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
                 var message = {
                     'func' : 'onDeleteImage',
                     'params' : {
-                    	'fileIds' : values
+                    	'fileId' : removeFileId
                     }
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			} else {
 				try {
-					window.AppJSInterface.onDeleteImage(values);
+					window.AppJSInterface.onDeleteImage(removeFileId);
 				} catch (e) {
 
 				}
