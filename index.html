@@ -75,6 +75,10 @@
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
 				// 마지막 데이터 지움
 				var removeImage = saveImages.pop();
+				if (removeImage == null) {
+					return;
+				}
+
 				document.getElementById('main').removeChild(document.getElementById(removeImage.id));
 				var values = [];
 				for (var i = saveImages.length - 1; i >= 0; i--) {
@@ -101,12 +105,13 @@
  
 	<button onclick='deleteImage();' style='margin-top: 10px'>deleteImage()</button><br>
 
+<!--
     <div>
         <h2><b>다중 이미지 미리보기</b></h2>
         <p class="title">다중 이미지 업로드</p>
         <input type="file" id="input_imgs" multiple />
     </div>
- 
+ -->
     <div id="main">
         
     </div>
