@@ -72,11 +72,16 @@
 
 		function deleteImage() {
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
-				var lastValue = saveImages.lastValue
+				var values = []
+				saveImages.for (var i = saveImages.length - 1; i >= 0; i--) {
+					values.push(saveImages[i].key)
+					console.log(values)
+				}
+
                 var message = {
-                    'func' : 'onOpenGallery',
+                    'func' : 'onDeleteImage',
                     'params' : {
-                    	'fileId' : lastValue.key
+                    	'fileIds' : values
                     }
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
