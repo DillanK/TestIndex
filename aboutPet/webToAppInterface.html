@@ -30,14 +30,13 @@
         // 미리보기 썸네일 삭제
         function onDeleteImage(fileId) {
         	var parameters = {
-        		'func' : 'onOpenGallery',
+        		'func' : 'onDeleteImage',
         		'fileId' : 'testFileId'
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onDeleteImage(parameters);
 			} else {
-				parameters['func'] = 'onDeleteImage';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
@@ -45,7 +44,7 @@
         // 새로운 페이지 열기
         function onNewPage(type, url) {
         	var parameters = {
-        		'func' : 'onOpenGallery',
+        		'func' : 'onNewPage',
         		'type' : 'TV',
         		'url' : 'http://dev.aboutpet.co.kr/tv/series/indexTvDetail?vdId=N2021012100032&sortCd=&listGb=HOME'
         	};
@@ -53,7 +52,6 @@
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onNewPage(parameters);
 			} else {
-				parameters['func'] = 'onNewPage';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
@@ -61,13 +59,12 @@
         // PIP 전환
 	    function onShowPIP() {
 	    	var parameters = {
-	    		'func' : 'onOpenGallery'
+	    		'func' : 'onShowPIP'
 	    	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onShowPIP();
 			} else {
-				parameters['func'] = 'onShowPIP';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
@@ -75,14 +72,13 @@
 	    // 메인 페이지 셋팅
 	    function onMainPage() {
 			var parameters = {
-				'func' : 'onOpenGallery',
+				'func' : 'onMainPage',
         		'type' : 'TV'
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onMainPage(parameters);
 			} else {
-				parameters['func'] = 'onMainPage';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
@@ -90,13 +86,12 @@
 	    // 현재 위치 정보 요청
 	    function onCurrentLoc() {
 	    	var parameters = {
-	    		'func' : 'onOpenGallery'
+	    		'func' : 'onCurrentLoc'
 	    	};
 	    	
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onCurrentLoc();
 			} else {
-				parameters['func'] = 'onCurrentLoc';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
@@ -104,13 +99,12 @@
 	    // 네트워크 상태 정보
 	    function onNetworkStatus() {
 	    	var parameters = {
-	    		'func' : 'onOpenGallery'
+	    		'func' : 'onNetworkStatus'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onNetworkStatus();
 			} else {
-				parameters['func'] = 'onNetworkStatus';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
@@ -118,13 +112,12 @@
 	    // 설정 정보 요청
 	    function onSettingInfos() {
 	    	var parameters = {
-	    		'func' : 'onOpenGallery'
+	    		'func' : 'onSettingInfos'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onSettingInfos();
 			} else {
-				parameters['func'] = 'onSettingInfos';
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
@@ -168,6 +161,32 @@
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
+
+		// 미리보기 이미지
+	    function appPreviewImage(fileId, imageToBase64) {
+	    	alert("fileId : " + fileId + "  imageToBase64 : " + imageToBase64)
+	    }
+
+	    // 파일 업로드 완료 
+	    function appUploadComplete(fileIds) {
+	    	alert("fileIds : " + fileIds)
+	    }
+
+	    // 현재 위치 좌표
+	    function appCurrentLoc(latitude, longitude) {
+	    	alert("latitude : " + latitude + "  longitude : " + longitude)
+	    }
+
+	    // 네트워크 상태 
+	    function appNetworkStatus(status) {
+			alert("status : " + status)
+	    }
+
+	    // 설정 정보
+	    function appSettingInfo(mainPage, autoPlay, appVersion) {
+	    	alert("mainPage : " + mainPage + "  autoPlay : " + autoPlay + "  appVersion : " + appVersion);
+	    }
+
     </script>
 </head>
 <body>
