@@ -91,9 +91,7 @@
 			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
                 var message = {
                     'func' : 'onDeleteImage',
-                    'params' : {
-                    	'fileId' : removeFileId
-                    }
+                    'fileId' : removeFileId
                 };
                 window.webkit.messageHandlers.AppJSInterface.postMessage(message);
 			} else {
