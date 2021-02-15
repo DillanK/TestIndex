@@ -9,6 +9,7 @@
     	// 갤러리 열기
         function onOpenGallery() {
         	var parameters = {
+        		'func' : 'onOpenGallery',
         		'useCamera' : 'N',
         		'usePhotoEdit' : 'N',
         		'fileIds' : [
@@ -22,14 +23,14 @@
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onOpenGallery(parameters);
 			} else {
-				parameters['func'] = 'onOpenGallery';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
 
         // 미리보기 썸네일 삭제
         function onDeleteImage(fileId) {
         	var parameters = {
+        		'func' : 'onOpenGallery',
         		'fileId' : 'testFileId'
         	};
 
@@ -37,13 +38,14 @@
 				window.AppJSInterface.onDeleteImage(parameters);
 			} else {
 				parameters['func'] = 'onDeleteImage';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
 
         // 새로운 페이지 열기
         function onNewPage(type, url) {
         	var parameters = {
+        		'func' : 'onOpenGallery',
         		'type' : 'TV',
         		'url' : 'http://dev.aboutpet.co.kr/tv/series/indexTvDetail?vdId=N2021012100032&sortCd=&listGb=HOME'
         	};
@@ -52,13 +54,15 @@
 				window.AppJSInterface.onNewPage(parameters);
 			} else {
 				parameters['func'] = 'onNewPage';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
 
         // PIP 전환
 	    function onShowPIP() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onOpenGallery'
+	    	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onShowPIP();
@@ -71,6 +75,7 @@
 	    // 메인 페이지 셋팅
 	    function onMainPage() {
 			var parameters = {
+				'func' : 'onOpenGallery',
         		'type' : 'TV'
         	};
 
@@ -78,81 +83,89 @@
 				window.AppJSInterface.onMainPage(parameters);
 			} else {
 				parameters['func'] = 'onMainPage';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 현재 위치 정보 요청
 	    function onCurrentLoc() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onOpenGallery'
+	    	};
 	    	
         	if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onCurrentLoc();
 			} else {
 				parameters['func'] = 'onCurrentLoc';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 네트워크 상태 정보
 	    function onNetworkStatus() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onOpenGallery'
+	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onNetworkStatus();
 			} else {
 				parameters['func'] = 'onNetworkStatus';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 설정 정보 요청
 	    function onSettingInfos() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onOpenGallery'
+	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onSettingInfos();
 			} else {
 				parameters['func'] = 'onSettingInfos';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 공유
 	    function onShare(content) {
 	    	var parameters = {
+	    		'func' : 'onShare',
 	    		'content' : content
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onShare();
 			} else {
-				parameters['func'] = 'onShare';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 파일 업로드
 	    function onFileUpload() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onFileUpload'
+	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onFileUpload();
 			} else {
-				parameters['func'] = 'onFileUpload';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
 
 	    // 화면 닫기
 	    function onClose() {
-	    	var parameters = {};
+	    	var parameters = {
+	    		'func' : 'onClose'
+	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onClose();
 			} else {
-				parameters['func'] = 'onClose';
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 	    }
     </script>
