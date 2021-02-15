@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>JavaScript Test</title>
+
+    <script type="text/javascript">
+    	// 갤러리 열기
+        function onOpenGallery() {
+        	var parameters = {
+        		'useCamera' : 'N',
+        		'usePhotoEdit' : 'N',
+        		'fileIds' : [
+        			'test1', 'test2'
+        		],
+        		'maxCount' : '5',
+        		'previewWidth' : '200',
+        		'previewHeight' : '300'
+        	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOpenGallery(parameters);
+			} else {
+				parameters['func'] = 'onOpenGallery';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+        }
+
+        // 미리보기 썸네일 삭제
+        function onDeleteImage(fileId) {
+        	var parameters = {
+        		'fileId' : 'testFileId'
+        	};
+
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onDeleteImage(parameters);
+			} else {
+				parameters['func'] = 'onDeleteImage';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+        }
+
+        // 새로운 페이지 열기
+        function onNewPage(type, url) {
+        	var parameters = {
+        		'type' : 'TV',
+        		'url' : 'http://dev.aboutpet.co.kr/tv/series/indexTvDetail?vdId=N2021012100032&sortCd=&listGb=HOME'
+        	};
+
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onNewPage(parameters);
+			} else {
+				parameters['func'] = 'onNewPage';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+        }
+
+        // PIP 전환
+	    function onShowPIP() {
+	    	var parameters = {};
+
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onShowPIP();
+			} else {
+				parameters['func'] = 'onShowPIP';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 메인 페이지 셋팅
+	    function onMainPage() {
+			var parameters = {
+        		'type' : 'TV'
+        	};
+
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onMainPage(parameters);
+			} else {
+				parameters['func'] = 'onMainPage';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 현재 위치 정보 요청
+	    function onCurrentLoc() {
+	    	var parameters = {};
+	    	
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onCurrentLoc();
+			} else {
+				parameters['func'] = 'onCurrentLoc';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 네트워크 상태 정보
+	    function onNetworkStatus() {
+	    	var parameters = {};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onNetworkStatus();
+			} else {
+				parameters['func'] = 'onNetworkStatus';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 설정 정보 요청
+	    function onSettingInfos() {
+	    	var parameters = {};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onSettingInfos();
+			} else {
+				parameters['func'] = 'onSettingInfos';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 공유
+	    function onShare(content) {
+	    	var parameters = {
+	    		'content' : content
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onShare();
+			} else {
+				parameters['func'] = 'onShare';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 파일 업로드
+	    function onFileUpload() {
+	    	var parameters = {};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onFileUpload();
+			} else {
+				parameters['func'] = 'onFileUpload';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+
+	    // 화면 닫기
+	    function onClose() {
+	    	var parameters = {};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onClose();
+			} else {
+				parameters['func'] = 'onClose';
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(JSON.stringify(parameters));
+			}
+	    }
+    </script>
+</head>
+<body>
+    <button onclick='onOpenGallery();'>onOpenGallery()</button><br>
+    <button onclick='onDeleteImage();' style='margin-top: 10px'>onDeleteImage()</button><br>
+    <button onclick='onNewPage();' style='margin-top: 10px'>onNewPage()</button><br>
+    <button onclick='onShowPIP();' style='margin-top: 10px'>onShowPIP()</button><br>
+    <button onclick='onMainPage();' style='margin-top: 10px'>onMainPage()</button><br>
+    <button onclick='onCurrentLoc();' style='margin-top: 10px'>onCurrentLoc()</button><br>
+    <button onclick='onNetworkStatus();' style='margin-top: 10px'>onNetworkStatus()</button><br>
+    <button onclick='onSettingInfos();' style='margin-top: 10px'>onSettingInfos()</button><br>
+    <button onclick='onShare();' style='margin-top: 10px'>onShare()</button><br>
+    <button onclick='onFileUpload();' style='margin-top: 10px'>onFileUpload()</button><br>
+    <button onclick='onClose();' style='margin-top: 10px'>onClose()</button><br>
+</body>
+</html>
