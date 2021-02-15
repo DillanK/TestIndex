@@ -21,7 +21,7 @@
         	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onOpenGallery(parameters);
+				window.AppJSInterface.onOpenGallery(Json.stringfy(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -35,7 +35,7 @@
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onDeleteImage(parameters);
+				window.AppJSInterface.onDeleteImage(Json.stringfy(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -50,7 +50,7 @@
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onNewPage(parameters);
+				window.AppJSInterface.onNewPage(Json.stringfy(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -77,7 +77,7 @@
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onMainPage(parameters);
+				window.AppJSInterface.onMainPage(Json.stringfy(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -130,7 +130,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onShare();
+				window.AppJSInterface.onShare(Json.stringfy(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
