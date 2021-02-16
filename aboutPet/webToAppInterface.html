@@ -216,7 +216,7 @@
 		// 상품보기
 		function onProductView() {
 			var parameters = {
-	    		'func' : 'onUserRegister',
+	    		'func' : 'onProductView',
 	    		'productModels' : {
 	    			'productId' : '5385487400',
 	    			'productName' : '슬랙스 10종 특가',
@@ -241,7 +241,7 @@
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+				window.AppJSInterface.onProductView(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -250,7 +250,7 @@
 		// 상품검색
 		function onSearch() {
 			var parameters = {
-	    		'func' : 'onUserRegister',
+	    		'func' : 'onSearch',
 	    		'keyword' : '캐주얼 바지',
 	    		'productModels' : [
 	    		{
@@ -294,7 +294,7 @@
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+				window.AppJSInterface.onSearch(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -303,7 +303,7 @@
 		// 장바구니 담기
 		function onAddToCart() {
 			var parameters = {
-	    		'func' : 'onUserRegister',
+	    		'func' : 'onAddToCart',
 	    		'productModels' : [
 	    		{
 	    			'productId' : '5385487400',
@@ -346,7 +346,7 @@
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+				window.AppJSInterface.onAddToCart(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -355,14 +355,14 @@
 		// 최초 결제완료
 		function onFirstPurchase() {
 			var parameters = {
-	    		'func' : 'onUserRegister',
+	    		'func' : 'onFirstPurchase',
 	    		'eventAttrs' : {
 	    			'attr1' : "최초 결제"
 	    		}
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+				window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -371,7 +371,7 @@
 		// 결제완료
 		function onPurchase() {
 			var parameters = {
-	    		'func' : 'onUserRegister',
+	    		'func' : 'onPurchase',
 	    		'orderId' : '290192012',
 	    		'discount' : 22500.0,
 	    		'deliveryCharge' : 1000.0,
@@ -418,7 +418,7 @@
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+				window.AppJSInterface.onPurchase(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
