@@ -17,7 +17,8 @@
         		],
         		'maxCount' : '5',
         		'previewWidth' : '200',
-        		'previewHeight' : '300'
+        		'previewHeight' : '300',
+        		'callback' : 'appPreviewImage'
         	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -86,7 +87,8 @@
 	    // 현재 위치 정보 요청
 	    function onCurrentLoc() {
 	    	var parameters = {
-	    		'func' : 'onCurrentLoc'
+	    		'func' : 'onCurrentLoc',
+	    		'callback' : 'appCurrentLoc'
 	    	};
 	    	
         	if(navigator.userAgent.indexOf('Android') > -1){
@@ -99,7 +101,8 @@
 	    // 네트워크 상태 정보
 	    function onNetworkStatus() {
 	    	var parameters = {
-	    		'func' : 'onNetworkStatus'
+	    		'func' : 'onNetworkStatus',
+	    		'callback' : 'appNetworkStatus'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -112,7 +115,8 @@
 	    // 설정 정보 요청
 	    function onSettingInfos() {
 	    	var parameters = {
-	    		'func' : 'onSettingInfos'
+	    		'func' : 'onSettingInfos',
+	    		'callback' : 'appSettingInfo'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -139,7 +143,8 @@
 	    // 파일 업로드
 	    function onFileUpload() {
 	    	var parameters = {
-	    		'func' : 'onFileUpload'
+	    		'func' : 'onFileUpload',
+	    		'callback' : 'appUploadComplete'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -220,9 +225,9 @@
 	    		'productModels' : {
 	    			'productId' : '5385487400',
 	    			'productName' : '슬랙스 10종 특가',
-	    			'price' : 10000.00,
+	    			'price' : 10000.0,
 	    			'quantity' : 1,
-	    			'discount' : 1000.00,
+	    			'discount' : 1000.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 1', '카테고리 2', '카테고리 3'
@@ -256,9 +261,9 @@
 	    		{
 	    			'productId' : '5385487400',
 	    			'productName' : '슬랙스 10종 특가',
-	    			'price' : 10000.00,
+	    			'price' : 10000.0,
 	    			'quantity' : 1,
-	    			'discount' : 1000.00,
+	    			'discount' : 1000.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 1', '카테고리 2', '카테고리 3'
@@ -272,9 +277,9 @@
 	    		{
 	    			'productId' : '145099811',
 	    			'productName' : '[이월특가] 나염 맨투맨',
-	    			'price' : 15500.00,
+	    			'price' : 15500.0,
 	    			'quantity' : 1,
-	    			'discount' : 1200.00,
+	    			'discount' : 1200.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 12', '카테고리 22', '카테고리 32'
@@ -308,9 +313,9 @@
 	    		{
 	    			'productId' : '5385487400',
 	    			'productName' : '슬랙스 10종 특가',
-	    			'price' : 10000.00,
+	    			'price' : 10000.0,
 	    			'quantity' : 1,
-	    			'discount' : 1000.00,
+	    			'discount' : 1000.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 1', '카테고리 2', '카테고리 3'
@@ -324,9 +329,9 @@
 	    		{
 	    			'productId' : '145099811',
 	    			'productName' : '[이월특가] 나염 맨투맨',
-	    			'price' : 15500.00,
+	    			'price' : 15500.0,
 	    			'quantity' : 1,
-	    			'discount' : 1200.00,
+	    			'discount' : 1200.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 12', '카테고리 22', '카테고리 32'
@@ -373,6 +378,7 @@
 			var parameters = {
 	    		'func' : 'onPurchase',
 	    		'orderId' : '290192012',
+	    		'orderSales' : 70000.0
 	    		'discount' : 22500.0,
 	    		'deliveryCharge' : 1000.0,
 	    		'paymentMethod' : 1,
@@ -380,9 +386,9 @@
 	    		{
 	    			'productId' : '5385487400',
 	    			'productName' : '슬랙스 10종 특가',
-	    			'price' : 10000.00,
+	    			'price' : 10000.0,
 	    			'quantity' : 1,
-	    			'discount' : 1000.00,
+	    			'discount' : 1000.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 1', '카테고리 2', '카테고리 3'
@@ -396,9 +402,9 @@
 	    		{
 	    			'productId' : '145099811',
 	    			'productName' : '[이월특가] 나염 맨투맨',
-	    			'price' : 15500.00,
+	    			'price' : 15500.0,
 	    			'quantity' : 1,
-	    			'discount' : 1200.00,
+	    			'discount' : 1200.0,
 	    			'currency' : 1,		// 상단 주석 또는 문서 참고
 	    			'categorys' : [
 	    				'카테고리 12', '카테고리 22', '카테고리 32'
