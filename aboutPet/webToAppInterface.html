@@ -189,19 +189,262 @@
 	    	alert("mainPage : " + mainPage + "  autoPlay : " + autoPlay + "  appVersion : " + appVersion);
 	    }
 
+		//******************** AdBrix ****************************************************/
+	    //******************** AdBrix ****************************************************/
+		//******************** AdBrix ****************************************************/
+		//******************** AdBrix ****************************************************/
+		// 회원가입
+		function onUserRegister() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'SignType' : 'Google',
+	    		'eventAttrs' : {
+	    			'gender' : "male",
+	    			'height' : 36,
+	    			'married' : true,
+	    			'key' : 'value'
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		// 상품보기
+		function onProductView() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'productModels' : {
+	    			'productId' : '5385487400',
+	    			'productName' : '슬랙스 10종 특가',
+	    			'price' : 10000.00,
+	    			'quantity' : 1,
+	    			'discount' : 1000.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 1', '카테고리 2', '카테고리 3'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'size' : 25,
+	    				'color' : 'blue',
+	    				'vip' : false
+	    			}
+	    		},
+	    		'eventAttrs' : {
+	    			'gender' : "male",
+	    			'height' : 36,
+	    			'married' : true
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		// 상품검색
+		function onSearch() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'keyword' : '캐주얼 바지',
+	    		'productModels' : [
+	    		{
+	    			'productId' : '5385487400',
+	    			'productName' : '슬랙스 10종 특가',
+	    			'price' : 10000.00,
+	    			'quantity' : 1,
+	    			'discount' : 1000.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 1', '카테고리 2', '카테고리 3'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'size' : 25,
+	    				'color' : 'blue',
+	    				'vip' : false
+	    			}
+	    		},
+	    		{
+	    			'productId' : '145099811',
+	    			'productName' : '[이월특가] 나염 맨투맨',
+	    			'price' : 15500.00,
+	    			'quantity' : 1,
+	    			'discount' : 1200.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 12', '카테고리 22', '카테고리 32'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'grade' : 'vip',
+	    				'howmany_buy' : 36,
+	    				'discount' : true
+	    			}
+	    		},
+	    		],
+	    		'eventAttrs' : {
+	    			'gender' : "male",
+	    			'height' : 36,
+	    			'married' : true
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		// 장바구니 담기
+		function onAddToCart() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'productModels' : [
+	    		{
+	    			'productId' : '5385487400',
+	    			'productName' : '슬랙스 10종 특가',
+	    			'price' : 10000.00,
+	    			'quantity' : 1,
+	    			'discount' : 1000.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 1', '카테고리 2', '카테고리 3'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'size' : 25,
+	    				'color' : 'blue',
+	    				'vip' : false
+	    			}
+	    		},
+	    		{
+	    			'productId' : '145099811',
+	    			'productName' : '[이월특가] 나염 맨투맨',
+	    			'price' : 15500.00,
+	    			'quantity' : 1,
+	    			'discount' : 1200.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 12', '카테고리 22', '카테고리 32'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'grade' : 'vip',
+	    				'howmany_buy' : 36,
+	    				'discount' : true
+	    			}
+	    		}
+	    		],
+	    		'eventAttrs' : {
+	    			'gender' : "male",
+	    			'height' : 36,
+	    			'married' : true
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		// 최초 결제완료
+		function onFirstPurchase() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'eventAttrs' : {
+	    			'attr1' : "최초 결제"
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		// 결제완료
+		function onPurchase() {
+			var parameters = {
+	    		'func' : 'onUserRegister',
+	    		'orderId' : '290192012',
+	    		'discount' : 22500.0,
+	    		'deliveryCharge' : 1000.0,
+	    		'paymentMethod' : 1,
+	    		'productModels' : [
+	    		{
+	    			'productId' : '5385487400',
+	    			'productName' : '슬랙스 10종 특가',
+	    			'price' : 10000.00,
+	    			'quantity' : 1,
+	    			'discount' : 1000.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 1', '카테고리 2', '카테고리 3'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'size' : 25,
+	    				'color' : 'blue',
+	    				'vip' : false
+	    			}
+	    		},
+	    		{
+	    			'productId' : '145099811',
+	    			'productName' : '[이월특가] 나염 맨투맨',
+	    			'price' : 15500.00,
+	    			'quantity' : 1,
+	    			'discount' : 1200.00,
+	    			'currency' : 1,		// 상단 주석 또는 문서 참고
+	    			'categorys' : {
+	    				'카테고리 12', '카테고리 22', '카테고리 32'
+	    			},
+	    			'productDetailAttrs' : {
+	    				'grade' : 'vip',
+	    				'howmany_buy' : 36,
+	    				'discount' : true
+	    			}
+	    		},
+	    		],
+	    		'eventAttrs' : {
+	    			'gender' : "male",
+	    			'height' : 36,
+	    			'married' : true
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onUserRegister(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
     </script>
 </head>
 <body>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onOpenGallery();'>onOpenGallery()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onDeleteImage();' style='margin-top: 10px'>onDeleteImage()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onNewPage();' style='margin-top: 10px'>onNewPage()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onShowPIP();' style='margin-top: 10px'>onShowPIP()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onMainPage();' style='margin-top: 10px'>onMainPage()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onCurrentLoc();' style='margin-top: 10px'>onCurrentLoc()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onNetworkStatus();' style='margin-top: 10px'>onNetworkStatus()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onSettingInfos();' style='margin-top: 10px'>onSettingInfos()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onShare();' style='margin-top: 10px'>onShare()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onFileUpload();' style='margin-top: 10px'>onFileUpload()</button><br>
-    <button style="font-size:20px;height:50px;width:300px" onclick='onClose();' style='margin-top: 10px'>onClose()</button><br>
+	<H1>WebToApp</H1>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onOpenGallery();'>onOpenGallery()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onDeleteImage();' style='margin-top: 10px'>onDeleteImage()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onNewPage();' style='margin-top: 10px'>onNewPage()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onShowPIP();' style='margin-top: 10px'>onShowPIP()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onMainPage();' style='margin-top: 10px'>onMainPage()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onCurrentLoc();' style='margin-top: 10px'>onCurrentLoc()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onNetworkStatus();' style='margin-top: 10px'>onNetworkStatus()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onSettingInfos();' style='margin-top: 10px'>onSettingInfos()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onShare();' style='margin-top: 10px'>onShare()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onFileUpload();' style='margin-top: 10px'>onFileUpload()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onClose();' style='margin-top: 10px'>onClose()</button><br><br>
+
+    <H1>AdBrix</H1>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onProductView();' style='margin-top: 10px'>상품보기[ onProductView() ]</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onSearch();' style='margin-top: 10px'>상품검색[ onSearch() ]</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onAddToCart();' style='margin-top: 10px'>장바구니담기[ onAddToCart() ]</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onFirstPurchase();' style='margin-top: 10px'>최초 결제완료[ onFirstPurchase() ]</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onPurchase();' style='margin-top: 10px'>결제완료[ onPurchase() ]</button><br><br>
 </body>
 </html>
