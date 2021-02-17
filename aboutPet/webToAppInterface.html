@@ -168,28 +168,36 @@
 	    }
 
 		// 미리보기 이미지
-	    function appPreviewImage(fileId, imageToBase64) {
-	    	alert("fileId : " + fileId + "  imageToBase64 : " + imageToBase64)
+	    function appPreviewImage(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("fileId : " + parseData.fileId + "  imageToBase64 : " + parseData.imageToBase64)
 	    }
 
 	    // 파일 업로드 완료 
-	    function appUploadComplete(fileIds) {
-	    	alert("fileIds : " + fileIds)
+	    function appUploadComplete(jsonString) {
+			var parseData = JSON.parse(jsonString);
+	    	alert("fileIds : " + parseData.fileIds)
 	    }
 
 	    // 현재 위치 좌표
-	    function appCurrentLoc(latitude, longitude) {
-	    	alert("latitude : " + latitude + "  longitude : " + longitude)
+	    function appCurrentLoc(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	// latitude, longitude
+	    	alert("latitude : " + parseData.latitude + "  longitude : " + parseData.longitude)
 	    }
 
 	    // 네트워크 상태 
-	    function appNetworkStatus(status) {
-			alert("status : " + status)
+	    function appNetworkStatus(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	// status
+			alert("status : " + parseData.status)
 	    }
 
 	    // 설정 정보
-	    function appSettingInfo(mainPage, autoPlay, appVersion) {
-	    	alert("mainPage : " + mainPage + "  autoPlay : " + autoPlay + "  appVersion : " + appVersion);
+	    function appSettingInfo(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	// mainPage, autoPlay, appVersion
+	    	alert("mainPage : " + parseData.mainPage + "  autoPlay : " + parseData.autoPlay + "  appVersion : " + parseData.appVersion);
 	    }
 
 		//******************** AdBrix ****************************************************/
