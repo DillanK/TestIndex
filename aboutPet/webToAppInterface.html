@@ -92,7 +92,7 @@
 	    	};
 	    	
         	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onCurrentLoc();
+				window.AppJSInterface.onCurrentLoc(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -106,7 +106,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onNetworkStatus();
+				window.AppJSInterface.onNetworkStatus(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -120,7 +120,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onSettingInfos();
+				window.AppJSInterface.onSettingInfos(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -148,7 +148,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onFileUpload();
+				window.AppJSInterface.onFileUpload(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
