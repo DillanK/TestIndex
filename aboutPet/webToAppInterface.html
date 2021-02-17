@@ -167,6 +167,20 @@
 			}
 	    }
 
+	    // Push Token
+	    function onPushToken() {
+	    	var parameters = {
+	    		'func' : 'onPushToken',
+	    		'callback' : 'appPushToken'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
 		// 미리보기 이미지
 	    function appPreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
@@ -198,6 +212,11 @@
 	    	var parseData = JSON.parse(jsonString);
 	    	// mainPage, autoPlay, appVersion
 	    	alert("mainPage : " + parseData.mainPage + "  autoPlay : " + parseData.autoPlay + "  appVersion : " + parseData.appVersion);
+	    }
+
+	    function appPushToken(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("pushToken : " + parseData.pushToken);	
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -450,6 +469,7 @@
     <button style="font-size:20px;height:50px;width:100%" onclick='onShare();' style='margin-top: 10px'>onShare()</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onFileUpload();' style='margin-top: 10px'>onFileUpload()</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onClose();' style='margin-top: 10px'>onClose()</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onPushToken();' style='margin-top: 10px'>onPushToken()</button><br><br>
 
     <H1>AdBrix</H1>
     <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
