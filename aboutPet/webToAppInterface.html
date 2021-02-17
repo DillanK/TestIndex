@@ -60,11 +60,12 @@
         // PIP 전환
 	    function onShowPIP() {
 	    	var parameters = {
-	    		'func' : 'onShowPIP'
+	    		'func' : 'onShowPIP',
+	    		'callback' : 'appPIPClose'
 	    	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onShowPIP();
+				window.AppJSInterface.onShowPIP(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -217,6 +218,10 @@
 	    function appPushToken(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	alert("pushToken : " + parseData.token);	
+	    }
+
+	    function appPIPClose() {
+	    	alert("PIP Close");
 	    }
 
 		//******************** AdBrix ****************************************************/
