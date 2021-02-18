@@ -131,7 +131,7 @@
 	    function onShare(content) {
 	    	var parameters = {
 	    		'func' : 'onShare',
-	    		'content' : content
+	    		'content' : '어바웃 펫을 홍보해주세요.'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -215,11 +215,13 @@
 	    	alert("mainPage : " + parseData.mainPage + "  autoPlay : " + parseData.autoPlay + "  appVersion : " + parseData.appVersion);
 	    }
 
+	    // 푸시 토큰 전달
 	    function appPushToken(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	alert("pushToken : " + parseData.token);	
 	    }
 
+		// PIP 화면 닫기
 	    function appPIPClose() {
 	    	alert("PIP Close");
 	    }
