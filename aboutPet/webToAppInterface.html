@@ -182,6 +182,34 @@
 			}	
 	    }
 
+	    // 네트워크 상태에 따라 자동 플레이 여부
+	    function onAutoPlay() {
+	    	var parameters = {
+	    		'func' : 'onAutoPlay',
+	    		'type' : 'W'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}		
+	    }
+
+		// 자동 플레이 재생가능 여부
+	    function onIsAutoPlay() {
+	    	var parameters = {
+	    		'func' : 'onIsAutoPlay',
+	    		'callback' : 'appIsAutoPlay'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
 		// 미리보기 이미지
 	    function appPreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);

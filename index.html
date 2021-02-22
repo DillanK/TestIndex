@@ -51,17 +51,25 @@
         }
 
         function openAlbum() {
-        	if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
-                var message = {
-                    'func' : 'onOpenGallery'
-                };
-                window.webkit.messageHandlers.AppJSInterface.postMessage(message);
-			} else {
-				try {
-					window.AppJSInterface.onOpenGallery();
-				} catch (e) {
+        	var parameters = {
+        		'func' : 'onOpenGallery',
+        		'useCamera' : 'Y',
+        		'usePhotoEdit' : 'N',
+        		'editType' : 'R',
+        		'fileIds' : [
+        			'test1', 'test2'
+        		],
+        		'maxCount' : '5',
+        		'previewWidth' : '200',
+        		'previewHeight' : '300',
+        		'callback' : 'appPreviewImage',
+        		'callbackDelete' : 'appDeletePreviewImage'
+        	};
 
-				}
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOpenGallery(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
         }
 
@@ -88,18 +96,15 @@
 
 			document.getElementById('main').removeChild(document.getElementById(removeFileId));
 
-			if(navigator.userAgent.indexOf('iOS') > -1 || navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
-                var message = {
-                    'func' : 'onDeleteImage',
-                    'fileId' : removeFileId
-                };
-                window.webkit.messageHandlers.AppJSInterface.postMessage(message);
-			} else {
-				try {
-					window.AppJSInterface.onDeleteImage(removeFileId);
-				} catch (e) {
+			var parameters = {
+        		'func' : 'onDeleteImage',
+        		'fileId' : removeFileId
+        	};
 
-				}
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onDeleteImage(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 		}
  		
