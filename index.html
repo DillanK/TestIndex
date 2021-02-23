@@ -85,6 +85,16 @@
 		    document.getElementById('main').appendChild(img);
 		}
 
+		function deleteImage(fileId) {
+			document.getElementById('main').removeChild(document.getElementById(removeFileId));
+			for (var i = saveImages.length - 1; i >= 0; i--) {
+			 	if fileId == saveImages[i].id {
+			 		saveImages.removeChild(i)
+			 		break;
+			 	}
+			 } 
+		}
+
 		function deleteImage() {
 			// 마지막 데이터 지움
 			var removeImage = saveImages.pop();
@@ -107,7 +117,6 @@
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
 		}
- 		
 
     </script>
 </head>
