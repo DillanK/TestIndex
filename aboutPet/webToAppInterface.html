@@ -10,15 +10,17 @@
         function onOpenGallery() {
         	var parameters = {
         		'func' : 'onOpenGallery',
-        		'useCamera' : 'N',
+        		'useCamera' : 'P',
         		'usePhotoEdit' : 'N',
+        		'editType' : 'R',
         		'fileIds' : [
         			'test1', 'test2'
         		],
         		'maxCount' : '5',
         		'previewWidth' : '200',
         		'previewHeight' : '300',
-        		'callback' : 'appPreviewImage'
+        		'callback' : 'appPreviewImage',
+        		'callbackDelete' : 'appDeletePreviewImage'
         	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -61,7 +63,9 @@
 	    function onShowPIP() {
 	    	var parameters = {
 	    		'func' : 'onShowPIP',
-	    		'callback' : 'appPIPClose'
+	    		'callback' : 'appPIPClose',
+	    		'width' : '',
+	    		'height' : ''
 	    	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
@@ -131,7 +135,9 @@
 	    function onShare(content) {
 	    	var parameters = {
 	    		'func' : 'onShare',
-	    		'content' : '어바웃 펫을 홍보해주세요.'
+	    		'image' : '',
+	    		'subject' : '',
+	    		'link' : ''
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
@@ -210,10 +216,42 @@
 			}	
 	    }
 
+	    // 로그인
+	    function onLogin() {
+			var parameters = {
+	    		'func' : 'onLogin'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    // 로그아웃
+	    function onLogout() {
+	    	var parameters = {
+	    		'func' : 'onLogout'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
 		// 미리보기 이미지
 	    function appPreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
-	    	alert("fileId : " + parseData.fileId + "  imageToBase64 : " + parseData.imageToBase64)
+	    	alert("fileId : " + parseData.fileId + "mediaType : " + parseData.mediaType +  "  imageToBase64 : " + parseData.imageToBase64)
+	    }
+
+	    // 미리보기 이미지 삭제
+	    function appDeletePreviewImage(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("fileId : " + parseData.fileId)
 	    }
 
 	    // 파일 업로드 완료 
@@ -226,7 +264,7 @@
 	    function appCurrentLoc(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	// latitude, longitude
-	    	alert("latitude : " + parseData.latitude + "  longitude : " + parseData.longitude)
+	    	alert("latitude : " + parseData.latitude + "  longitude : " + parseData.longitude + "  authYn : " + parseData.authYn)
 	    }
 
 	    // 네트워크 상태 
@@ -252,6 +290,11 @@
 		// PIP 화면 닫기
 	    function appPIPClose() {
 	    	alert("PIP Close");
+	    }
+
+	    function appIsAutoPlay(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("isAutoPlay : " + parseData.isAutoPlay);	
 	    }
 
 		//******************** AdBrix ****************************************************/
