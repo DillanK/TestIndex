@@ -81,7 +81,7 @@
 
 			var img = new Image();
 			img.id = key;
-		    img.src = 'data:' + mimeType + ';image/png,' + value;
+		    img.src = 'data:image/png' + ';base64,' + value;
 		    document.getElementById('main').appendChild(img);
 		}
 
