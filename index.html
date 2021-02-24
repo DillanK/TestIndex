@@ -93,7 +93,7 @@
             var parseData = JSON.parse(jsonString);
 			document.getElementById('main').removeChild(document.getElementById(parseData.fileId));
 			for (var i = saveImages.length - 1; i >= 0; i--) {
-			 	if (fileId == saveImages[i].id) {
+			 	if (parseData.fileId == saveImages[i].id) {
 			 		saveImages.splice(i + 1, 1);
 			 		break;
 			 	}
