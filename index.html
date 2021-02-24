@@ -51,13 +51,19 @@
         }
 
         function openAlbum() {
+            var fileIds = [];
+            for (var i = saveImages.length - 1; i >= 0; i--) {
+                fileIds.append(saveImages[i].id);
+             } 
+
         	var parameters = {
         		'func' : 'onOpenGallery',
         		'useCamera' : 'Y',
+                'galleryType' : 'PV',
         		'usePhotoEdit' : 'N',
         		'editType' : 'R',
         		'fileIds' : [
-        			'test1', 'test2'
+        			fileIds
         		],
         		'maxCount' : '5',
         		'previewWidth' : '200',
@@ -74,7 +80,6 @@
         }
 
         var saveImages = [];
-
 		function appPreviewImage(jsonString) { //key, value, mediaType) {
 			// 데이터 저장
             var parseData = JSON.parse(jsonString);
