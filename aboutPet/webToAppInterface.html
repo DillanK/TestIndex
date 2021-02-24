@@ -8,14 +8,18 @@
     <script type="text/javascript">
     	// 갤러리 열기
         function onOpenGallery() {
+        	var fileIds = [];
+            for (var i = saveImages.length - 1; i >= 0; i--) {
+                fileIds.append(saveImages[i].id);
+             } 
+
         	var parameters = {
         		'func' : 'onOpenGallery',
-        		'useCamera' : 'P',
+        		'useCamera' : 'PV',
+                'galleryType' : 'PV',
         		'usePhotoEdit' : 'N',
         		'editType' : 'R',
-        		'fileIds' : [
-        			'test1', 'test2'
-        		],
+        		'fileIds' : fileIds,
         		'maxCount' : '5',
         		'previewWidth' : '200',
         		'previewHeight' : '300',
@@ -243,14 +247,22 @@
 	    }
 
 		// 미리보기 이미지
+		var saveImages = [];
 	    function appPreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
+	    	saveImages.push({id: parseData.fileId, name: parseData.imageToBase64});
 	    	alert("fileId : " + parseData.fileId + "mediaType : " + parseData.mediaType +  "  imageToBase64 : " + parseData.imageToBase64)
 	    }
 
 	    // 미리보기 이미지 삭제
 	    function appDeletePreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
+	    	for (var i = saveImages.length - 1; i >= 0; i--) {
+			 	if (fileId == saveImages[i].id) {
+			 		saveImages.removeChild(i);
+			 		break;
+			 	}
+			 } 
 	    	alert("fileId : " + parseData.fileId)
 	    }
 
