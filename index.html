@@ -92,12 +92,15 @@
 		function appDeletePreviewImage(jsonString) {
             var parseData = JSON.parse(jsonString);
 			document.getElementById('main').removeChild(document.getElementById(parseData.fileId));
+            var tempImages = [];
 			for (var i = 0; i < saveImages.length; i++) {
 			 	if (parseData.fileId == saveImages[i].id) {
-			 		saveImages.splice(i + 1, 1);
-			 		break;
+			 		continue;
 			 	}
+                tempImages[tempImages.length] = saveImages[i].id;
 			 } 
+
+             saveImages = tempImages;
 		}
 
 		function deleteImage() {
