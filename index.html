@@ -75,13 +75,14 @@
 
         var saveImages = [];
 
-		function appPreviewImage(key, value, mediaType) {
+		function appPreviewImage(jsonString) { //key, value, mediaType) {
 			// 데이터 저장
-			saveImages.push({id: key, name: value});
+            var parseData = JSON.parse(jsonString);
+			saveImages.push({id: parseData.fileId, name: parseData.imageToBase64});
 
 			var img = new Image();
-			img.id = key;
-		    img.src = value;
+			img.id = parseData.fileId;
+		    img.src = parseData.imageToBase64;
 		    document.getElementById('main').appendChild(img);
 		}
 
