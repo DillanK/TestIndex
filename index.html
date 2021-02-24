@@ -53,7 +53,7 @@
         function openAlbum() {
             var fileIds = [];
             for (var i = saveImages.length - 1; i >= 0; i--) {
-                fileIds.append(saveImages[i].id);
+                fileIds[i] = saveImages[i].id;
              } 
 
         	var parameters = {
