@@ -1,0 +1,175 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<script src="/player/iframe_api/v1.js"></script>
+
+</head>
+<body style="margin:0px;padding:0px">
+
+
+	<!-- 플레이어 위치 -->
+	<div class="" style="background-color:#000">
+		<div class="" style="max-width:1190px;margin:auto">
+			<div id="player"></div>
+		</div>
+
+
+	</div>
+	<div class="" style="text-align:center;padding:10px;">
+		<button class="btn btn-dark btn-xs" type="button" onclick="player.pipToggle()">PIP 모드 토글</button>
+		<br>
+		<br>
+		<button class="btn btn-dark btn-xs" type="button" onclick="run_pip_go()">PIP JSInterface.pip_url_go()</button>
+		<button class="btn btn-dark btn-xs" type="button" onclick="document.documentElement.requestFullscreen();">new Fullscreen test</button>
+	</div>
+
+	<!--다음 영상 프로그레스바 테스트
+
+	<div class="box" >
+		<svg>
+			<circle class="progress"></circle>
+		</svg>
+	</div>
+
+	<style>
+        .box {
+            position:relative;
+        }
+        .box svg {
+            width: 100px;
+            height: 100px;
+        }
+        .box svg circle {
+            stroke-dasharray: 300, 300;
+            stroke-width: 5;
+
+            fill: transparent;
+            r: 30;
+            cx: 50;
+            cy: 50;
+            stroke: #000;
+            transition: stroke-dashoffset 0.3s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            -webkit-animation: rotateAni 5s ;
+            -webkit-animation-timing-function: linear;
+        }
+        @-webkit-keyframes rotateAni {
+            0% {
+                stroke-dashoffset: 300;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+	</style>-->
+
+
+
+	<script>
+	    var JSInterface;
+	    var player;
+	    function run_pip_go (){
+            try{
+                window.JSInterface.pip_url_go();
+            }catch (e) {
+                alert('안드로이드 앱에서 실행하세요.');
+            }
+	    }
+
+	    <!-- 플레이어 생성 함수 (자동실행) -->
+	    function onIframeAPIReady() {
+
+	        player = SGRPLAYER;
+	        player.setup('player', {
+	            height: '660px',
+	            width: '100%',
+	            video_id: 'ePGl3532828',
+		        ui:'mobile', // mobile | pc
+		        autoplay:true,  //자동재생
+                start_time:0,  //시작시간
+		        is_ad:false,
+	            events:{
+	                playing:onPlaying, //재생시작시 호출
+	                pause:onPause, // 일시정지시 호출
+	                ended:onEnded, //재생 종료시 호출
+	                muted:onMuted, //음소거 변화가 발생하면 호출 , 현재 상태값 전달
+	                keepPlaying:onKeepPlaying, //영상 재생시 , 현재 재생위치 5초마다 보고
+	                nextVideo:onNextVideo, //다음영상 UI 클릭시 실행 , 이벤트를 등록해야만 UI 노출됨
+	                prevVideo:onPrevVideo,  //이전영상 UI 클릭시 실행 , 이벤트를 등록해야만 UI 노출됨
+	                activeControlbar:onActiveControlbar, //컨트롤바가 활성/비활성시 호출
+	            }
+	        });
+	    }
+
+	    function onPlaying(){
+	        console.log('onPlaying','이벤트 실행');
+	    }
+	    function onPause(){
+	        console.log('onPause','이벤트 실행');
+	    }
+	    function onEnded(){
+	        console.log('onEnded','이벤트 실행');
+	    }
+	    function onMuted(state){
+	        if(state==true) {
+	            console.log('onMuted', '음소거됨');
+	        }else{
+	            console.log('onMuted', '음소거해제');
+	        }
+	    }
+	    function onActiveControlbar(state){
+	        if(state==true) {
+	            console.log('onMuted', '컨트롤바 보임');
+	        }else{
+	            console.log('onMuted', '컨트롤바 숨김');
+	        }
+	    }
+	    function onKeepPlaying(sec){
+	        console.log('onKeepPlaying','시청보고 5초마다 / 현재시간 : '+sec);
+	    }
+	    function onNextVideo(){
+	        console.log('nextVideo',' 이벤트 들어옴 ');
+
+            player.setup('player', {
+                height: '660px',
+                width: '100%',
+                video_id: 'ePGl3532828',
+                autoplay:true,
+                events:{
+                    playing:onPlaying, //재생시작시 호출
+                    pause:onPause, // 일시정지시 호출
+                    ended:onEnded, //재생 종료시 호출
+                    muted:onMuted, //음소거 변화가 발생하면 호출 , 현재 상태값 전달
+                    keepPlaying:onKeepPlaying, //영상 재생시 , 현재 재생위치 5초마다 보고
+                    prevVideo:onPrevVideo,  //이전영상 UI 클릭시 실행 , 이벤트를 등록해야만 UI 노출됨
+                    activeControlbar:onActiveControlbar, //컨트롤바가 활성/비활성시 호출
+                }
+            });
+
+	    }
+	    function onPrevVideo(){
+	        console.log('prevVideo',' 이벤트 들어옴 ');
+            player.setup('player', {
+                height: '660px',
+                width: '100%',
+                video_id: 'U8dO1111456',
+                autoplay:true,
+                events:{
+                    playing:onPlaying, //재생시작시 호출
+                    pause:onPause, // 일시정지시 호출
+                    ended:onEnded, //재생 종료시 호출
+                    muted:onMuted, //음소거 변화가 발생하면 호출 , 현재 상태값 전달
+                    keepPlaying:onKeepPlaying, //영상 재생시 , 현재 재생위치 5초마다 보고
+                    nextVideo:onNextVideo,
+                    activeControlbar:onActiveControlbar, //컨트롤바가 활성/비활성시 호출
+                }
+            });
+	    }
+
+	</script>
+
+
+
+</body>
+</html>
