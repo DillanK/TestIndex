@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
-	<script src="/player/iframe_api/v1.js"></script>
+	<script src="http://devsgr.aboutpet.co.kr/player/iframe_api/v1.js"></script>
 
 </head>
 <body style="margin:0px;padding:0px">
@@ -70,11 +70,18 @@
 	    var JSInterface;
 	    var player;
 	    function run_pip_go (){
-            try{
-                window.JSInterface.pip_url_go();
-            }catch (e) {
-                alert('안드로이드 앱에서 실행하세요.');
-            }
+            var parameters = {
+	    		'func' : 'onShowPIP',
+	    		'callback' : 'appPIPClose',
+	    		'width' : '',
+	    		'height' : ''
+	    	};
+
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onShowPIP(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
 	    }
 
 	    <!-- 플레이어 생성 함수 (자동실행) -->
