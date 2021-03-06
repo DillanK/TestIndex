@@ -183,7 +183,11 @@
 	    function onFileUpload() {
 	    	var parameters = {
 	    		'func' : 'onFileUpload',
-	    		'callback' : 'appUploadComplete'
+	    		'callback' : 'appUploadComplete',
+				'prefixPath' : '/abc/test',
+				'channel_id' : 'aboutpet_log',
+				'playlist_id' : '5FF6884B6F710',
+				'secret_key' : 'e876e7bd0dc85628d45f6afdb926e9f4'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
