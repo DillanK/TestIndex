@@ -77,6 +77,33 @@
 			}
         }
 
+        function editAlbum() {
+            var fileIds = [];
+            for (var i = saveImages.length - 1; i >= 0; i--) {
+                fileIds[i] = saveImages[i].id;
+             } 
+
+            var parameters = {
+                'func' : 'onOpenGallery',
+                'useCamera' : 'PV',
+                'galleryType' : 'PV',
+                'usePhotoEdit' : 'Y',
+                'editType' : 'R',
+                'fileIds' : fileIds,
+                'maxCount' : '5',
+                'previewWidth' : '200',
+                'previewHeight' : '300',
+                'callback' : 'appPreviewImage',
+                'callbackDelete' : 'appDeletePreviewImage'
+            };
+
+            if(navigator.userAgent.indexOf('Android') > -1){
+                window.AppJSInterface.onOpenGallery(JSON.stringify(parameters));
+            } else {
+                window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+            }
+        }
+
         var saveImages = [];
 		function appPreviewImage(jsonString) { //key, value, mediaType) {
 			// 데이터 저장
@@ -131,7 +158,7 @@
  
 <body>
  	<button onclick='openAlbum();' style='margin-top: 10px'>openAlbum()</button><br>
- 
+    <button onclick='editAlbum();' style='margin-top: 10px'>openAlbum()</button><br>
 	<button onclick='deleteImage();' style='margin-top: 10px'>deleteImage()</button><br>
 
 <!--
