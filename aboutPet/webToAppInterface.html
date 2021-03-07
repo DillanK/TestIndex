@@ -127,11 +127,15 @@
 	    		'func' : 'onCurrentLoc',
 	    		'callback' : 'appCurrentLoc'
 	    	};
-	    	
-        	if(navigator.userAgent.indexOf('Android') > -1){
+
+	    	if (confirm("위치정보를 요청합니다.") == true) {
+	    		if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onCurrentLoc(JSON.stringify(parameters));
+				} else {
+		            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+				}
 			} else {
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+				// 취소
 			}
 	    }
 
