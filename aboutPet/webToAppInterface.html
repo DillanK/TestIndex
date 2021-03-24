@@ -24,6 +24,7 @@
         		'maxCount' : '5',
         		'previewWidth' : '200',
         		'previewHeight' : '300',
+        		'title' : '갤러리 선택',
         		'callback' : 'appPreviewImage',
         		'callbackDelete' : 'appDeletePreviewImage'
         	};
@@ -51,6 +52,7 @@
         		'maxCount' : '5',
         		'previewWidth' : '200',
         		'previewHeight' : '300',
+        		'title' : '사진 선택',
         		'callback' : 'appPreviewImage',
         		'callbackDelete' : 'appDeletePreviewImage'
         	};
@@ -277,6 +279,33 @@
 
 			if(navigator.userAgent.indexOf('Android') > -1){
 				window.AppJSInterface.onPushToken(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onExtBrowser() {
+	    	var parameters = {
+	    		'func' : 'onExtBrowser',
+	    		'url' : 'https://m.naver.com'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onExtBrowser(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onOrderPage() {
+	    	var parameters = {
+	    		'func' : 'onOrderPage',
+	    		'url' : 'https://m.naver.com',
+	    		'title' : '테스트 타이틀'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOrderPage(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
@@ -634,6 +663,9 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onLogin();' style='margin-top: 10px'>onLogin()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onLogout();' style='margin-top: 10px'>onLogout()</button><br><br>
 
+	<button style="font-size:20px;height:50px;width:100%" onclick='onExtBrowser();' style='margin-top: 10px'>onExtBrowser()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onOrderPage();' style='margin-top: 10px'>onOrderPage()</button><br><br>
+
     <H1>AdBrix</H1>
     <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onProductView();' style='margin-top: 10px'>상품보기[ onProductView() ]</button><br><br>
@@ -653,5 +685,7 @@
     <button style="font-size:20px;height:50px;width:100%" onclick='applink3();' style='margin-top: 10px'>androidApp3</button><br><br>
 
     <button style="font-size:20px;height:50px;width:100%" onclick='applink4();' style='margin-top: 10px'>androidApp4</button><br><br>
+
+
 </body>
 </html>
