@@ -616,6 +616,13 @@
 			// } else { 
 			// 	window.location.href = "http://www.stackoverflow.com"; 
 			// } 
+
+			var sf = document.sharForm; sf.method="post"; 
+			sf.target="S070202052"; 
+			sf.action="S070202052.do?ServiceName=S070202052-service"; 
+			var viewShre = window.open("about:blank" , "S070202052" , "toolbar=no,menubar=no,scrollbars=yes,status=yes,resizable=no,width=840,height=720,top=0,left=300" ); 
+			viewShre.focus(); 
+			setTimeout(function() {sf.submit();}, 100);
 		}
 
 		function applink() {
