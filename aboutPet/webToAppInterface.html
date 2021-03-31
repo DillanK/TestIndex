@@ -318,7 +318,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onOrderPage(JSON.stringify(parameters));
+				window.AppJSInterface.onShowPG(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
@@ -332,7 +332,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onOrderPage(JSON.stringify(parameters));
+				window.AppJSInterface.onClosePG(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
