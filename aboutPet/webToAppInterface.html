@@ -311,6 +311,33 @@
 			}	
 	    }
 
+	    function onShowPG() {
+			var parameters = {
+	    		'func' : 'onShowPG',
+	    		'url' : 'https://dillank.github.io/TestIndex/aboutPet/webToAppInterface.html'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOrderPage(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onClosePG() {
+	    	var parameters = {
+	    		'func' : 'onClosePG',
+	    		'parameters' : '{\'testData\' : \'resultPG\', \'testData2\' : \'resultPG2\'}',
+	    		'callback' : 'appResultPGData'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOrderPage(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
 		// 미리보기 이미지
 		var saveImages = [];
 	    function appPreviewImage(jsonString) {
@@ -372,6 +399,11 @@
 	    function appIsAutoPlay(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	alert("isAutoPlay : " + parseData.isAutoPlay);	
+	    }
+
+	    function appResultPGData(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("appResultPGData : " + parseData.testData);		
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -674,6 +706,9 @@
 
 	<button style="font-size:20px;height:50px;width:100%" onclick='onExtBrowser();' style='margin-top: 10px'>onExtBrowser()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onOrderPage();' style='margin-top: 10px'>onOrderPage()</button><br><br>
+	// PG
+	<button style="font-size:20px;height:50px;width:100%" onclick='onShowPG();' style='margin-top: 10px'>onShowPG()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onClosePG();' style='margin-top: 10px'>onClosePG()</button><br><br>
 
     <H1>AdBrix</H1>
     <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
