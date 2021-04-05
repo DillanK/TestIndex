@@ -338,18 +338,18 @@
 			}	
 	    }
 
-	    function onCloseMovePage() {
-	    	var parameters = {
-	    		'func' : 'onCloseMovePage',
-	    		'moveUrl' : 'https://m.naver.com'
-	    	};
+	  //   function onCloseMovePage() {
+	  //   	var parameters = {
+	  //   		'func' : 'onCloseMovePage',
+	  //   		'moveUrl' : 'https://m.naver.com'
+	  //   	};
 
-			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onCloseMovePage(JSON.stringify(parameters));
-			} else {
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
-			}	
-	    }
+			// if(navigator.userAgent.indexOf('Android') > -1){
+			// 	window.AppJSInterface.onCloseMovePage(JSON.stringify(parameters));
+			// } else {
+	  //           window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			// }	
+	  //   }
 
 		// 미리보기 이미지
 		var saveImages = [];
@@ -722,7 +722,7 @@
 	// PG
 	<button style="font-size:20px;height:50px;width:100%" onclick='onShowPG();' style='margin-top: 10px'>onShowPG()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onClosePG();' style='margin-top: 10px'>onClosePG()</button><br><br>
-	<button style="font-size:20px;height:50px;width:100%" onclick='onCloseMovePage();' style='margin-top: 10px'>onCloseMovePage()</button><br><br>
+	<!-- <button style="font-size:20px;height:50px;width:100%" onclick='onCloseMovePage();' style='margin-top: 10px'>onCloseMovePage()</button><br><br> -->
 	
 
     <H1>AdBrix</H1>
