@@ -66,16 +66,41 @@
 
         // 미리보기 썸네일 삭제
         function onDeleteImage(fileId) {
+        	var fileIds = [];
+            for (var i = saveImages.length - 1; i >= 0; i--) {
+                fileIds.append(saveImages[i].id);
+             } 
+
         	var parameters = {
-        		'func' : 'onDeleteImage',
-        		'fileId' : 'testFileId'
+        		'func' : 'onOpenGallery',
+        		'useCamera' : 'V',
+                'galleryType' : 'V',
+        		'usePhotoEdit' : 'Y',
+        		'editType' : 'S',
+        		'fileIds' : fileIds,
+        		'maxCount' : '5',
+        		'previewWidth' : '200',
+        		'previewHeight' : '300',
+        		'title' : '사진 선택',
+        		'callback' : 'appPreviewImage',
+        		'callbackDelete' : 'appDeletePreviewImage'
         	};
 
-        	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onDeleteImage(JSON.stringify(parameters));
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onOpenGallery(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
+   //      	var parameters = {
+   //      		'func' : 'onDeleteImage',
+   //      		'fileId' : 'testFileId'
+   //      	};
+
+   //      	if(navigator.userAgent.indexOf('Android') > -1){
+			// 	window.AppJSInterface.onDeleteImage(JSON.stringify(parameters));
+			// } else {
+	  //           window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			// }
         }
 
         // 새로운 페이지 열기
