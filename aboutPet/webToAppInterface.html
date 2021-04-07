@@ -66,41 +66,16 @@
 
         // 미리보기 썸네일 삭제
         function onDeleteImage(fileId) {
-        	var fileIds = [];
-            for (var i = saveImages.length - 1; i >= 0; i--) {
-                fileIds.append(saveImages[i].id);
-             } 
-
         	var parameters = {
-        		'func' : 'onOpenGallery',
-        		'useCamera' : 'V',
-                'galleryType' : 'V',
-        		'usePhotoEdit' : 'Y',
-        		'editType' : 'S',
-        		'fileIds' : fileIds,
-        		'maxCount' : '5',
-        		'previewWidth' : '200',
-        		'previewHeight' : '300',
-        		'title' : '사진 선택',
-        		'callback' : 'appPreviewImage',
-        		'callbackDelete' : 'appDeletePreviewImage'
+        		'func' : 'onDeleteImage',
+        		'fileId' : 'testFileId'
         	};
 
-			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onOpenGallery(JSON.stringify(parameters));
+        	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onDeleteImage(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
-   //      	var parameters = {
-   //      		'func' : 'onDeleteImage',
-   //      		'fileId' : 'testFileId'
-   //      	};
-
-   //      	if(navigator.userAgent.indexOf('Android') > -1){
-			// 	window.AppJSInterface.onDeleteImage(JSON.stringify(parameters));
-			// } else {
-	  //           window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
-			// }
         }
 
         // 새로운 페이지 열기
@@ -715,7 +690,7 @@
 		}
 
 		function applink4() {
-			window.location.href = "https://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io";
+			window.location.href = "Intent://splash#Intent;scheme=aboutpetlink;package=com.petsbe.android.petsbemall;end";
 		}
 
 
