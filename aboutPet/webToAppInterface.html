@@ -677,20 +677,41 @@
 		}
 
 		function applink2() {
-			try {
-				window.location.href = "apetapp://com.petsbe.android.petsbemall";
-			} catch {
+			var parameters = {
+	    		'func' : 'onColorChange',
+	    		'color' : 'white'
+	    	};
 
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
-
 		}
 
 		function applink3() {
-			window.location.href = "applinks://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io";
+			var parameters = {
+	    		'func' : 'onColorChange',
+	    		'color' : 'black'
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
 		}
 
 		function applink4() {
-			window.location.href = "Intent://splash#Intent;scheme=aboutpetlink;package=com.petsbe.android.petsbemall;end";
+			var parameters = {
+	    		'func' : 'onColorChange'
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
 		}
 
 
