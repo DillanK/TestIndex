@@ -83,7 +83,9 @@
         	var parameters = {
         		'func' : 'onNewPage',
         		'type' : 'TV',
-        		'url' : 'http://dev.aboutpet.co.kr/tv/series/indexTvDetail?vdId=N2021012100032&sortCd=&listGb=HOME'
+        		'url' : 'http://dev.aboutpet.co.kr/tv/series/indexTvDetail?vdId=N2021012100032
+sortCd=
+listGb=HOME'
         	};
 
         	if(navigator.userAgent.indexOf('Android') > -1){
@@ -337,6 +339,20 @@
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
 	    }
+
+	    function onPushActivation() {
+	    	var parameters = {
+	    		'func' : 'onPushActivation'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onPushActivation();
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    
 
 	  //   function onCloseMovePage() {
 	  //   	var parameters = {
@@ -743,6 +759,7 @@
 	// PG
 	<button style="font-size:20px;height:50px;width:100%" onclick='onShowPG();' style='margin-top: 10px'>onShowPG()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onClosePG();' style='margin-top: 10px'>onClosePG()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onPushActivation();' style='margin-top: 10px'>onPushActivation()</button><br><br>
 	<!-- <button style="font-size:20px;height:50px;width:100%" onclick='onCloseMovePage();' style='margin-top: 10px'>onCloseMovePage()</button><br><br> -->
 	
 
