@@ -356,7 +356,7 @@
 	    function appPreviewImage(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	saveImages.push({id: parseData.fileId, name: parseData.imageToBase64});
-	    	// alert("fileId : " + parseData.fileId + "mediaType : " + parseData.mediaType +  "  imageToBase64 : image!!")
+	    	// alert("fileId :" + parseData.fileId +"mediaType :" + parseData.mediaType + "  imageToBase64 : image!!")
 	    }
 
 	    // 미리보기 이미지 삭제
@@ -368,40 +368,40 @@
 			 		break;
 			 	}
 			 } 
-	    	alert("fileId : " + parseData.fileId)
+	    	alert("fileId :" + parseData.fileId)
 	    }
 
 	    // 파일 업로드 완료 
 	    function appUploadComplete(jsonString) {
 			// var parseData = JSON.parse(jsonString);
-	    	alert("fileIds : " + jsonString)
+	    	alert("fileIds :" + jsonString)
 	    }
 
 	    // 현재 위치 좌표
 	    function appCurrentLoc(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	// latitude, longitude
-	    	alert("latitude : " + parseData.latitude + "  longitude : " + parseData.longitude + "  authYn : " + parseData.authYn)
+	    	alert("latitude :" + parseData.latitude +"  longitude :" + parseData.longitude +"  authYn :" + parseData.authYn)
 	    }
 
 	    // 네트워크 상태 
 	    function appNetworkStatus(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	// status
-			alert("status : " + parseData.status)
+			alert("status :" + parseData.status)
 	    }
 
 	    // 설정 정보
 	    function appSettingInfo(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	// mainPage, autoPlay, appVersion
-	    	alert("mainPage : " + parseData.mainPage + "  autoPlay : " + parseData.autoPlay + "  appVersion : " + parseData.appVersion);
+	    	alert("mainPage :" + parseData.mainPage +"  autoPlay :" + parseData.autoPlay +"  appVersion :" + parseData.appVersion);
 	    }
 
 	    // 푸시 토큰 전달
 	    function appPushToken(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
-	    	alert("pushToken : " + parseData.token);	
+	    	alert("pushToken :" + parseData.token);	
 	    }
 
 		// PIP 화면 닫기
@@ -411,12 +411,12 @@
 
 	    function appIsAutoPlay(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
-	    	alert("isAutoPlay : " + parseData.isAutoPlay);	
+	    	alert("isAutoPlay :" + parseData.isAutoPlay);	
 	    }
 
 	    function appResultPGData(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
-	    	alert("isAutoPlay : " + jsonString);	
+	    	alert("isAutoPlay :" + jsonString);	
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -429,7 +429,7 @@
 	    		'func' : 'onUserRegister',
 	    		'SignUpChnnel' : 1,
 	    		'eventAttrs' : {
-	    			'gender' : "male",
+	    			'gender' :"male",
 	    			'height' : 36,
 	    			'married' : true,
 	    			'key' : 'value'
@@ -464,7 +464,7 @@
 	    			}
 	    		},
 	    		'eventAttrs' : {
-	    			'gender' : "male",
+	    			'gender' :"male",
 	    			'height' : 36,
 	    			'married' : true
 	    		}
@@ -517,7 +517,7 @@
 	    		},
 	    		],
 	    		'eventAttrs' : {
-	    			'gender' : "male",
+	    			'gender' :"male",
 	    			'height' : 36,
 	    			'married' : true
 	    		}
@@ -569,7 +569,7 @@
 	    		}
 	    		],
 	    		'eventAttrs' : {
-	    			'gender' : "male",
+	    			'gender' :"male",
 	    			'height' : 36,
 	    			'married' : true
 	    		}
@@ -587,7 +587,7 @@
 			var parameters = {
 	    		'func' : 'onFirstPurchase',
 	    		'eventAttrs' : {
-	    			'attr1' : "최초 결제"
+	    			'attr1' :"최초 결제"
 	    		}
 	    	};
 
@@ -642,7 +642,7 @@
 	    		},
 	    		],
 	    		'eventAttrs' : {
-	    			'gender' : "male",
+	    			'gender' :"male",
 	    			'height' : 36,
 	    			'married' : true
 	    		}
@@ -656,24 +656,25 @@
 		}
 
 		function loadlink() { 
-			// if (typeof (window.open) == "function") { 
-				// window.open("http://www.stackoverflow.com"); 
-			// } else { 
-			// 	window.location.href = "http://www.stackoverflow.com"; 
-			// } 
+			
 
-			window.open("https://m.naver.com" , "S070202052" , "toolbar=no,menubar=no,scrollbars=yes,status=yes,resizable=no,width=840,height=720,top=0,left=300" ); 
+			window.open("https://m.naver.com" ,"S070202052" ,"toolbar=no,menubar=no,scrollbars=yes,status=yes,resizable=no,width=840,height=720,top=0,left=300" ); 
 
-			// var sf = document.sharForm; sf.method="post"; 
-			// sf.target="S070202052"; 
-			// sf.action="S070202052.do?ServiceName=S070202052-service"; 
-			// var viewShre = 
-			// viewShre.focus(); 
-			// setTimeout(function() {sf.submit();}, 100);
+			var parameters = {
+	    		'func' : 'onTitleBarHidden',
+	    		'hidden' : 'N'
+	    	};
+
+			 
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onTitleBarHidden(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
 		}
 
 		function applink() {
-			window.location.href = "https://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io";
+			window.location.href ="https://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io";
 		}
 
 		function applink2() {
@@ -774,7 +775,8 @@
 	<a href="tel:0212345678">02-1234-5678</a>
 
 
-	<video oncontextmenu="return false;" id="myVideo" width="640" controls autoplay muted playsinline>
+	<video oncontextmenu="return false;
+" id="myVideo" width="640" controls autoplay muted playsinline>
 
 		<source src="https://pmbaxtsxxtzz5736608.cdn.ntruss.com/vod/HhD35982967/1080p.mp4" type="video/mp4">
 
