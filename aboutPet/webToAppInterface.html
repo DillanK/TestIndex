@@ -704,15 +704,16 @@
 		}
 
 		function applink4() {
-			var parameters = {
-	    		'func' : 'onColorChange'
-	    	};
+			// var parameters = {
+	  //   		'func' : 'onColorChange'
+	  //   	};
 
-	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
-			} else {
-	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
-			}
+	  //   	if(navigator.userAgent.indexOf('Android') > -1){
+			// 	window.AppJSInterface.onFirstPurchase(JSON.stringify(parameters));
+			// } else {
+	  //           window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			// }
+			location.href="https://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io/api/v1/click/kMT9ioBptEGz51TtzV712A?cb_1={ohvalue}&cb_2={eId}&m_publisher={media}"
 		}
 
 		function telLink() {
