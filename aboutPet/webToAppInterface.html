@@ -655,6 +655,24 @@
 			}
 		}
 
+		// 최초 결제완료
+		function onAdbrixCustomEvent() {
+			var parameters = {
+	    		'func' : 'onAdbrixCustomEvent',
+	    		'eventName' : 'customName'
+	    		'eventAttrs' : {
+	    			'customKey' :"customValue",
+	    			'customKey1' :"customValue1"
+	    		}
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onAdbrixCustomEvent(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
 		function loadlink() { 
 			
 
@@ -760,6 +778,7 @@
     <button style="font-size:20px;height:50px;width:100%" onclick='onAddToCart();' style='margin-top: 10px'>장바구니담기[ onAddToCart() ]</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onFirstPurchase();' style='margin-top: 10px'>최초 결제완료[ onFirstPurchase() ]</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onPurchase();' style='margin-top: 10px'>결제완료[ onPurchase() ]</button><br><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onAdbrixCustomEvent();' style='margin-top: 10px'>커스톰 이벤트[ onAdbrixCustomEvent() ]</button><br><br><br>
 
 
 	<H1>기타 함수</H1>
