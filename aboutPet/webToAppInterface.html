@@ -742,11 +742,7 @@
 		}
 
 		function getDisplayInfo() {
-			var size = {
-		  		width: window.innerWidth || document.body.clientWidth,
-		  		height: window.innerHeight || document.body.clientHeight
-			};
-			alert("width : " + size.width + " height : " + size.height);
+			alert("width : " + screen.availWidth + " height : " + screen.availHeight + "\n" + "width : " + window.outerWidth + " height : " + window.outerHeight + "\n" + "width : " + window.innerWidth + " height : " + window.innerHeight + "\n");
 		}
 
 
