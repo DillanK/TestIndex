@@ -741,6 +741,14 @@
 			
 		}
 
+		function getDisplayInfo() {
+			var size = {
+		  		width: window.innerWidth || document.body.clientWidth,
+		  		height: window.innerHeight || document.body.clientHeight
+			};
+			alert("width : " + size.width + " height : " + size.height);
+		}
+
 
     </script>
 </head>
@@ -794,6 +802,8 @@
     <button style="font-size:20px;height:50px;width:100%" onclick='applink3();' style='margin-top: 10px'>androidApp3</button><br><br>
 
     <button style="font-size:20px;height:50px;width:100%" onclick='applink4();' style='margin-top: 10px'>androidApp4</button><br><br>
+
+    <button style="font-size:20px;height:50px;width:100%" onclick='getDisplayInfo();' style='margin-top: 10px'>displaySize</button><br><br>
 
 	<a href="tel:0212345678">02-1234-5678</a><br><br>
 
