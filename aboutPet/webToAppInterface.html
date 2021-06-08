@@ -745,6 +745,49 @@
 			alert("width : " + screen.availWidth + " height : " + screen.availHeight + "\n" + "width : " + window.outerWidth + " height : " + window.outerHeight + "\n" + "width : " + window.innerWidth + " height : " + window.innerHeight + "\n");
 		}
 
+		function backSelect_use() {
+			var parameters = {
+	    		'func' : 'onBackSelected',
+	    		'isIntercepter' : 'Y',
+	    		'callback' : 'appBackSelectedC'
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onBackSelected(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		function appBackSelectedC() {
+			alert("백 이벤트 캣치")
+		}
+
+		function backSelect_notUsed() {
+			var parameters = {
+	    		'func' : 'onBackSelected',
+	    		'isIntercepter' : 'N'
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onBackSelected(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
+		function pipClose() {
+			var parameters = {
+	    		'func' : 'onClosePIP'
+	    	};
+
+	    	if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onClosePIP(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+		}
+
 
     </script>
 </head>
@@ -800,6 +843,12 @@
     <button style="font-size:20px;height:50px;width:100%" onclick='applink4();' style='margin-top: 10px'>androidApp4</button><br><br>
 
     <button style="font-size:20px;height:50px;width:100%" onclick='getDisplayInfo();' style='margin-top: 10px'>displaySize</button><br><br>
+
+	<button style="font-size:20px;height:50px;width:100%" onclick='backSelect_use();' style='margin-top: 10px'>backSelect_use</button><br><br>
+
+	<button style="font-size:20px;height:50px;width:100%" onclick='backSelect_notUsed();' style='margin-top: 10px'>backSelect_notUsed</button><br><br>
+
+    <button style="font-size:20px;height:50px;width:100%" onclick='pipClose();' style='margin-top: 10px'>pipClose</button><br><br>
 
 	<a href="tel:0212345678">02-1234-5678</a><br><br>
 
