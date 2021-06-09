@@ -782,7 +782,7 @@
 	    	};
 
 	    	if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onClosePIP(JSON.stringify(parameters));
+				window.AppJSInterface.onClosePIP();
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
