@@ -788,6 +788,17 @@
 			}
 		}
 
+		function chageLangSelect() { 
+			var langSelect = document.getElementById("id-lang");  
+  
+			// select element에서 선택된 option의 value가 저장된다.  
+			var selectValue = langSelect.options[langSelect.selectedIndex].value;  
+  
+			// select element에서 선택된 option의 text가 저장된다.  
+			var selectText = langSelect.options[langSelect.selectedIndex].text;
+
+			alert("selectValue : " + selectValue + "  selectText  : " + selectText)
+		}  
 
     </script>
 </head>
@@ -868,8 +879,24 @@
 	</video> -->
 
 	<span class="uispined st load" data-max="90" data-min="">
-						<input type="number" class="amt" id="buyQty828360588887386987" name="buyQty" value="1" data-cart-id="828360588887386987" data-min-ord-qty="" data-max-ord-qty="90" autofocus="autofocus" title="수량입력">
-					<div class="bx sel">	<select class="val slt" title="수량선택"><option type="button" value="1">1</option><option type="button" value="2">2</option><option type="button" value="3">3</option><option type="button" value="4">4</option><option type="button" value="5">5</option><option type="button" value="6">6</option><option type="button" value="7">7</option><option type="button" value="8">8</option><option type="button" value="9">9</option><option type="button" value="10">+10</option></select></div><div class="bx num">	<button type="button" class="bt mod">변경</button></div></span>
-
+		<input type="number" class="amt" id="buyQty828360588887386987" name="buyQty" value="1" data-cart-id="828360588887386987" data-min-ord-qty="" data-max-ord-qty="90" autofocus="autofocus" title="수량입력">
+		<div class="bx sel">	
+			<select class="val slt" title="수량선택" onchange="chageLangSelect()">
+				<option type="button" value="1">1</option>
+				<option type="button" value="2">2</option>
+				<option type="button" value="3">3</option>
+				<option type="button" value="4">4</option>
+				<option type="button" value="5">5</option>
+				<option type="button" value="6">6</option>
+				<option type="button" value="7">7</option>
+				<option type="button" value="8">8</option>
+				<option type="button" value="9">9</option>
+				<option type="button" value="10">+10</option>
+			</select>
+		</div>
+		<div class="bx num">	
+			<button type="button" class="bt mod">변경</button>
+		</div>
+	</span>
 </body>
 </html>
