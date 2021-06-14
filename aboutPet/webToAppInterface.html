@@ -798,9 +798,15 @@
 			var selectText = langSelect.options[langSelect.selectedIndex].text;
 
 			// alert("selectValue : " + selectValue + "  selectText  : " + selectText)
+			var tt = document.getElementById("buttonTest");
+			tt.onclick = function() {
+				const $input_t = document.getElementById('test_focus');
+				$input_t.focus();
+			};
 
 			
-			setTimeout(inputFocus, 1000);
+			
+			setTimeout(tt.onclick, 1000);
 		}
 
 		function inputFocus() {
@@ -809,9 +815,6 @@
 			// $input_t.value = "1";
 		}
 
-		window.onload = function() {
-  			document.getElementById("test_focus").focus();
-		};
 
     </script>
 </head>
@@ -908,7 +911,7 @@
 			</select>
 		</div>
 		<div class="bx num">	
-			<button type="button" class="bt mod">변경</button>
+			<button id="buttonTest" type="button" class="bt mod">변경</button>
 		</div>
 	</span>
 </body>
