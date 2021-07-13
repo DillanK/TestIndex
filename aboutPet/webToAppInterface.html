@@ -370,7 +370,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onHideWebChat();
+				window.AppJSInterface.onHideWebChat(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
