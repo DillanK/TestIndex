@@ -358,7 +358,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onShowWebChat();
+				window.AppJSInterface.onShowWebChat(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
@@ -370,7 +370,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onHideWebChat(JSON.stringify(parameters));
+				window.AppJSInterface.onHideWebChat();
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
