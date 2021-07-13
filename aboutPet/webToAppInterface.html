@@ -350,6 +350,43 @@
 			}	
 	    }
 
+	    // WebChat 보여주기
+	    function onShowWebChat() {
+	    	var parameters = {
+	    		'func' : 'onShowWebChat',
+	    		'url' : 'https://aboutpet.co.kr/common/sendSearchEngineEvent?mbr_no=937841&section=shop&content_id=&action=etc&element_id=&keyword=&url=https%3A%2F%2Faboutpet.co.kr%2Fshop%2Fhome%2F&target_url=&timestamp=&index=&agent=APP_IOS&litd=127.12665763574515&lttd=37.193089861813824&prclAddr=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%AA%A9%EB%8F%99&roadAddr=&postNoNew='
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onShowWebChat();
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onHideWebChat() {
+	    	var parameters = {
+	    		'func' : 'onHideWebChat'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onHideWebChat();
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onCloseWebChat() {
+	    	var parameters = {
+	    		'func' : 'onCloseWebChat'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onCloseWebChat();
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
 
 		// 미리보기 이미지
 		var saveImages = [];
@@ -846,6 +883,10 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onPushActivation();' style='margin-top: 10px'>onPushActivation()</button><br><br>
 	<!-- <button style="font-size:20px;height:50px;width:100%" onclick='onCloseMovePage();' style='margin-top: 10px'>onCloseMovePage()</button><br><br> -->
 	
+	<button style="font-size:20px;height:50px;width:100%" onclick='onShowWebChat();' style='margin-top: 10px'>onShowWebChat()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onHideWebChat();' style='margin-top: 10px'>onHideWebChat()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onCloseWebChat();' style='margin-top: 10px'>onCloseWebChat()</button><br><br>
+
 
     <H1>AdBrix</H1>
     <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
