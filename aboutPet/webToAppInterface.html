@@ -388,6 +388,61 @@
 			}	
 	    }
 
+	    function onEnableKeyboardEvent() {
+	    	var parameters = {
+	    		'func' : 'onEnableKeyboardEvent',
+	    		'callback' : 'appKeyboardEvent'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onEnableKeyboardEvent(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
+	    function onDisableKeyboardEvent() {
+	    	var parameters = {
+	    		'func' : 'onDisableKeyboardEvent'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onDisableKeyboardEvent();
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
+
+	    function onSaveData() {
+	    	var parameters = {
+	    		'func' : 'onSaveData',
+	    		'key' : 'saveKey',
+	    		'value' : 'saveValue'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onSaveData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
+
+	    function onLoadData() {
+	    	var parameters = {
+	    		'func' : 'onLoadData',
+	    		'key' : 'saveKey',
+	    		'callback' : 'appLoadData'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onLoadData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
+
+
+
 		// 미리보기 이미지
 		var saveImages = [];
 	    function appPreviewImage(jsonString) {
@@ -454,6 +509,11 @@
 	    function appResultPGData(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	alert("isAutoPlay :" + jsonString);	
+	    }
+
+	    function appKeyboardEvent(jsonString) {
+	    	var parseData = JSON.parse(jsonString);
+	    	alert("appKeyboardEvent :" + jsonString);		
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -886,6 +946,11 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onShowWebChat();' style='margin-top: 10px'>onShowWebChat()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onHideWebChat();' style='margin-top: 10px'>onHideWebChat()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onCloseWebChat();' style='margin-top: 10px'>onCloseWebChat()</button><br><br>
+
+	<button style="font-size:20px;height:50px;width:100%" onclick='onEnableKeyboardEvent();' style='margin-top: 10px'>onEnableKeyboardEvent()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onDisableKeyboardEvent();' style='margin-top: 10px'>onDisableKeyboardEvent()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onSaveData();' style='margin-top: 10px'>onSaveData()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onLoadData();' style='margin-top: 10px'>onLoadData()</button><br><br>
 
 
     <H1>AdBrix</H1>
