@@ -441,6 +441,20 @@
 			}
 	    }
 
+	    function onCallMainData() {
+	    	var parameters = {
+	    		'func' : 'onCallMainData',
+	    		'data' : 'saveKey',
+	    		'callback' : 'appCallMainData'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onCallMainData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}	
+	    }
+
 
 
 		// 미리보기 이미지
@@ -519,6 +533,10 @@
 	    function appLoadData(jsonString) {
 	    	var parseData = JSON.parse(jsonString);
 	    	// alert("appKeyboardEvent :" + jsonString);		
+	    }
+
+	    function appCallMainData(jsonString) {
+	    	alert("appCallMainData :" + jsonString);	
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -956,6 +974,7 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onDisableKeyboardEvent();' style='margin-top: 10px'>onDisableKeyboardEvent()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onSaveData();' style='margin-top: 10px'>onSaveData()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onLoadData();' style='margin-top: 10px'>onLoadData()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onCallMainData();' style='margin-top: 10px'>onCallMainData()</button><br><br>
 
 
     <H1>AdBrix</H1>
