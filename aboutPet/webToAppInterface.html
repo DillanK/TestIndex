@@ -441,15 +441,15 @@
 			}
 	    }
 
-	    function onCallMainData() {
+	    function onCallMainScript() {
 	    	var parameters = {
-	    		'func' : 'onCallMainData',
+	    		'func' : 'onCallMainScript',
 	    		'data' : 'saveKey',
-	    		'callback' : 'appCallMainData'
+	    		'callback' : 'appCallMainScript'
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onCallMainData(JSON.stringify(parameters));
+				window.AppJSInterface.onCallMainScript(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}	
@@ -535,8 +535,8 @@
 	    	// alert("appKeyboardEvent :" + jsonString);		
 	    }
 
-	    function appCallMainData(jsonString) {
-	    	alert("appCallMainData :" + jsonString);	
+	    function appCallMainScript(jsonString) {
+	    	alert("appCallMainScript :" + jsonString);	
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -974,7 +974,7 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onDisableKeyboardEvent();' style='margin-top: 10px'>onDisableKeyboardEvent()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onSaveData();' style='margin-top: 10px'>onSaveData()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onLoadData();' style='margin-top: 10px'>onLoadData()</button><br><br>
-	<button style="font-size:20px;height:50px;width:100%" onclick='onCallMainData();' style='margin-top: 10px'>onCallMainData()</button><br><br>
+	<button style="font-size:20px;height:50px;width:100%" onclick='onCallMainScript();' style='margin-top: 10px'>onCallMainScript()</button><br><br>
 
 
     <H1>AdBrix</H1>
