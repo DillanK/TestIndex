@@ -471,7 +471,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onSaveData(JSON.stringify(parameters));
+				window.AppJSInterface.onSaveLocalData(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -485,7 +485,7 @@
 	    	};
 
 			if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onLoadData(JSON.stringify(parameters));
+				window.AppJSInterface.onLoadLocalData(JSON.stringify(parameters));
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
@@ -1017,6 +1017,9 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='onReload1();' style='margin-top: 10px'>onReload1()</button><br><br>
 	<button style="font-size:20px;height:50px;width:100%" onclick='onReload2();' style='margin-top: 10px'>onReload2()</button><br><br>
 
+	<button style="font-size:20px;height:50px;width:100%" onclick='onSaveLocalData();' style='margin-top: 10px'>onSaveLocalData</button><br><br>
+    <button style="font-size:20px;height:50px;width:100%" onclick='onLoadLocalData();' style='margin-top: 10px'>onLoadLocalData</button><br><br>
+
 
     <H1>AdBrix</H1>
     <button style="font-size:20px;height:50px;width:100%" onclick='onUserRegister();' style='margin-top: 10px'>회원가입[ onUserRegister() ]</button><br><br>
@@ -1046,10 +1049,6 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='backSelect_notUsed();' style='margin-top: 10px'>backSelect_notUsed</button><br><br>
 
     <button style="font-size:20px;height:50px;width:100%" onclick='pipClose();' style='margin-top: 10px'>pipClose</button><br><br>
-
-    <button style="font-size:20px;height:50px;width:100%" onclick='onSaveLocalData();' style='margin-top: 10px'>onSaveLocalData</button><br><br>
-
-    <button style="font-size:20px;height:50px;width:100%" onclick='onLoadLocalData();' style='margin-top: 10px'>onLoadLocalData</button><br><br>
 
 	<a href="tel:0212345678">02-1234-5678</a><br><br>
 
