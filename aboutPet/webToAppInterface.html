@@ -463,7 +463,33 @@
 	    	window.location.reload(true);
 	    }
 
+	    function onSaveLocalData() {
+			var parameters = {
+	    		'func' : 'onSaveData',
+	    		'key' : 'saveKey',
+	    		'value' : 'saveValue'
+	    	};
 
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onSaveData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
+
+	    function onLoadLocalData() {
+			var parameters = {
+	    		'func' : 'onLoadData',
+	    		'key' : 'saveKey',
+	    		'callback' : 'appLoadLocalData'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onLoadData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
 
 		// 미리보기 이미지
 		var saveImages = [];
@@ -545,6 +571,10 @@
 
 	    function appCallMainScript(jsonString) {
 	    	alert("appCallMainScript :" + jsonString);	
+	    }
+
+	    function appLoadLocalData(jsonString) {
+	    	alert("appLoadLocalData :" + jsonString);		
 	    }
 
 		//******************** AdBrix ****************************************************/
@@ -1016,6 +1046,10 @@
 	<button style="font-size:20px;height:50px;width:100%" onclick='backSelect_notUsed();' style='margin-top: 10px'>backSelect_notUsed</button><br><br>
 
     <button style="font-size:20px;height:50px;width:100%" onclick='pipClose();' style='margin-top: 10px'>pipClose</button><br><br>
+
+    <button style="font-size:20px;height:50px;width:100%" onclick='onSaveLocalData();' style='margin-top: 10px'>onSaveLocalData</button><br><br>
+
+    <button style="font-size:20px;height:50px;width:100%" onclick='onLoadLocalData();' style='margin-top: 10px'>onLoadLocalData</button><br><br>
 
 	<a href="tel:0212345678">02-1234-5678</a><br><br>
 
