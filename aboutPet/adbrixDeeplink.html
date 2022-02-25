@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="/scripts/snippet-javascript-console.min.js?v=1">
+			
+		</script>
+		<style>
+			body,
+			#landingTxt,
+			#landingHide,
+			#txt,
+			#hide {
+				font: inherit;
+				margin: 0;
+				padding: 0;
+			}
+
+			#landingTxt,
+			#txt {
+				border: true;
+				color: #000;
+				min-width: 10px;
+			}
+
+			#landingTxt,
+			#txt:focus-visible {
+				outline: none;
+			}
+
+			#landingHide,
+			#hide {
+				position: absolute;
+				height: 0;
+				overflow: hidden;
+				white-space: pre;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4>1. UTM 정보 </h4>
+		<li>utm_source : <input id="utm_source" type="text" name="id" placeholder="소스" value=""></br></li>
+		<li>utm_medium : <input id="utm_medium" type="text" name="id" placeholder="매체" value=""></br></li>
+		<li>utm_campaign : <input id="utm_campaign" type="text" name="id" placeholder="캠페인" value=""></br></li>
+		<li>utm_content : <input id="utm_content" type="text" name="id" placeholder="콘텐츠" value=""></br></li>
+		<li>utm_term : <input id="utm_term" type="text" name="id" placeholder="키워드" value=""></br></li>
+
+		<h4>2. 애드브릭스 Deeplink 정보 </h4>
+		<li>deeplink : <span id="hide"></span><input id="txt" type="text" name="id" value="https://BXPD5Og4xEKwhWif2aXoog.adtouch.adbrix.io/api/v1/click/xPWhuHQHn0S3KoW83DVLAg"></br></li>
+
+		<h4>3. Landing URL 정보 </h4>
+		<li>landing URL : <span id="landingHide"></span><input id="landingTxt" type="text" name="id" value="https://aboutpet.co.kr/goods/indexGoodsDetail?goodsId=PI000002684"></br></li>
+
+		<h4>4. DeepLink 생성 </h4>
+		<button style="font-size:20px;height:50px;width:50%" onclick='makeDeepLink();' style='margin-top: 10px'>DeepLink 생성</button><br><br>
+
+		<h4>5. DeepLink </h4>
+		Android Deeplink : <label id="aos"></label><br>
+		iOS Deeplink : <label id="aos"></label><br>
+
+		<script type="text/javascript">
+			const hide = document.getElementById('hide');
+			const txt = document.getElementById('txt');
+			const landingHide = document.getElementById('landingHide');
+			const landingTxt = document.getElementById('landingTxt');
+			resize();
+			txt.addEventListener("input", resize);
+			landingTxt.addEventListener("input", resize);
+			function resize() {
+				hide.textContent = txt.value;
+				txt.style.width = (hide.offsetWidth + 20) + "px";
+
+				landingHide.textContent = landingTxt.value;
+				landingTxt.style.width = (landingHide.offsetWidth + 20) + "px";
+			}
+
+			function makeDeepLink() { 
+				var utm_source = document.getElementById('utm_source');
+				var utm_medium = document.getElementById('utm_medium');
+				var utm_campaign = document.getElementById('utm_campaign');
+				var utm_content = document.getElementById('utm_content');
+				var utm_term = document.getElementById('utm_term');
+				var adbrix = document.getElementById('txt');
+				var landingUrl = document.getElementById('landingTxt');
+
+				var aos = document.getElementById('aos');
+				var ios = document.getElementById('ios');
+
+				aos.textContent = adbrix.value + "?" + "landingUrl=" + encodeURI(landingUrl.value);
+			}
+		</script>
+	</body>
+</html>
