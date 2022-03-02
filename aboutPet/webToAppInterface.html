@@ -139,15 +139,26 @@
 	    		'callback' : 'appCurrentLoc'
 	    	};
 
-	    	if (confirm("위치정보를 요청합니다.") == true) {
-	    		if(navigator.userAgent.indexOf('Android') > -1){
-				window.AppJSInterface.onCurrentLoc(JSON.stringify(parameters));
-				} else {
-		            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
-				}
-			} else {
-				// 취소
-			}
+	  //   	if (confirm("위치정보를 요청합니다.") == true) {
+	  //   		if(navigator.userAgent.indexOf('Android') > -1){
+			// 	window.AppJSInterface.onCurrentLoc(JSON.stringify(parameters));
+			// 	} else {
+		 //            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			// 	}
+			// } else {
+			// 	// 취소
+			// }
+			airbridge.events.send("category", {
+			    label: "label21112",
+			    action: "action11111",
+			    value: 1011122,
+			    semanticAttributes: {
+			        transactionID: "transaction_1234441",
+			    },
+			    customAttributes: {
+			        key: "value22211",
+			    }
+			});
 	    }
 
 	    // 네트워크 상태 정보
@@ -162,6 +173,18 @@
 			} else {
 	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
 			}
+
+			airbridge.events.send("category", {
+			    label: "label22",
+			    action: "action555",
+			    value: 10111,
+			    semanticAttributes: {
+			        transactionID: "transaction_1231111",
+			    },
+			    customAttributes: {
+			        key: "value222",
+			    }
+			});
 	    }
 
 	    // 설정 정보 요청
