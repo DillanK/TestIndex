@@ -535,6 +535,19 @@
 			}
 	    }
 
+	    function onEnableAppHistoryback() {
+			var parameters = {
+	    		'func' : 'onEnableAppHistoryback',
+	    		'enable' : 'Y'
+	    	};
+
+			if(navigator.userAgent.indexOf('Android') > -1){
+				window.AppJSInterface.onLoadLocalData(JSON.stringify(parameters));
+			} else {
+	            window.webkit.messageHandlers.AppJSInterface.postMessage(parameters);
+			}
+	    }
+
 		// 미리보기 이미지
 		var saveImages = [];
 	    function appPreviewImage(jsonString) {
@@ -1067,6 +1080,8 @@
 
 	<button style="font-size:20px;height:50px;width:100%" onclick='onSaveLocalData();' style='margin-top: 10px'>onSaveLocalData</button><br><br>
     <button style="font-size:20px;height:50px;width:100%" onclick='onLoadLocalData();' style='margin-top: 10px'>onLoadLocalData</button><br><br>
+
+    <button style="font-size:20px;height:50px;width:100%" onclick='onEnableAppHistoryback();' style='margin-top: 10px'>onEnableAppHistoryback</button><br><br>
 
 
     <H1>AdBrix</H1>
